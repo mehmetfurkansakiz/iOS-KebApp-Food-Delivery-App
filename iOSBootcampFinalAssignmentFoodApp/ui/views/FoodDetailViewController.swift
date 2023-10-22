@@ -85,9 +85,8 @@ class FoodDetailViewController: UIViewController {
             return
         }
         viewModel.addCart(food_name: foodName, food_image_name: imageName, food_price: totalPrice!, order_quantity: quantity!, nickname: nickname!)
-        viewModel.getMergedCart(nickname: nickname!)
-        
         navigationController?.popToRootViewController(animated: true)
+        viewModel.getMergedCart(nickname: nickname!)
     }
     
     @IBAction func buttonLike(_ sender: Any) {

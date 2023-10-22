@@ -48,8 +48,10 @@ class FoodCartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            self.viewModel.resCart(nickname: self.nickname)
-            self.cartCollectionView.reloadData()
+            self.viewModel.getMergedCart(nickname: self.nickname)
+            DispatchQueue.main.async {
+                self.cartCollectionView.reloadData()
+            }
         }
     }
     
