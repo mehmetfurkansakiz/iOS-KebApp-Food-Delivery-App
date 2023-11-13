@@ -40,23 +40,15 @@ class FoodCartViewController: UIViewController {
         _ = viewModel.cartFoodsList.subscribe(onNext: { list in
             self.cartFoodsList = list
             DispatchQueue.main.async {
-                self.calculateDiscountedTotalPrice() // calculateDiscountedTotalPrice !
+                self.calculateDiscountedTotalPrice() // calculateDiscountedTotalPrice
                 self.cartCollectionView.reloadData()
             }
         })
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.viewModel.getMergedCart(nickname: self.nickname)
-            DispatchQueue.main.async {
-                self.cartCollectionView.reloadData()
-            }
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.cartCollectionView.reloadData()
+            self.viewModel.getCart(nickname: self.nickname)
+            self.cartCollectionView.reloadData()
     }
     
     @IBAction func buttonDelete(_ sender: UIButton) {
@@ -68,7 +60,7 @@ class FoodCartViewController: UIViewController {
             let cartFood = cartFoodsList[indexPath.row]
             if let sepetYemekID = Int(cartFood.sepet_yemek_id!) {
                 viewModel.deleteCart(cart_food_id: sepetYemekID, nickname: self.nickname)
-                viewModel.resCart(nickname: self.nickname)
+                viewModel.getCart(nickname: self.nickname)
             }
         }
         self.cartCollectionView.reloadData()

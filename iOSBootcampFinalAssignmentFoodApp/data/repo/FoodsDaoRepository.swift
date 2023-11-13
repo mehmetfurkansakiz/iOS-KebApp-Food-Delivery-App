@@ -54,7 +54,7 @@ class FoodsDaoRepository {
         }
     }
     
-    func resCart(nickname: String) {
+    func getCart(nickname: String) {
         let params: Parameters = ["kullanici_adi":nickname]
         
         AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
@@ -72,31 +72,6 @@ class FoodsDaoRepository {
                 }
             }
             
-        }
-    }
-    
-    func getMergedCart(nickname: String) {
-        let params: Parameters = ["kullanici_adi":nickname]
-        
-        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
-            if let data = response.data {
-                do {
-                    let res = try JSONDecoder().decode(CartFoodsResponse.self, from: data)
-                    print("---------GET-MERGED-CART---------")
-                    print("Success: \(res.success!)")
-                    if let list = res.sepet_yemekler {
-                        var mergedList = self.mergeCartFoods(list)
-                        self.cartFoodsList.onNext(mergedList)
-                        mergedList.removeAll() //mergedList clean
-                    }
-//                    print("------RAW RESPONSE------")
-//                    let rawResponse = try JSONSerialization.jsonObject(with: data)
-//                    print(rawResponse)
-                } catch {
-                    print(error.localizedDescription)
-                    self.cartFoodsList.onNext([])
-                }
-            }
         }
     }
     
@@ -119,29 +94,5 @@ class FoodsDaoRepository {
     
     func getFoodImageUrl(imageName: String) -> URL? {
         return URL(string: ("http://kasimadalan.pe.hu/yemekler/resimler/" + imageName))
-    }
-    
-    func mergeCartFoods(_ cartFoods: [CartFoods]) -> [CartFoods] {
-        var mergedList: [CartFoods] = []
-        
-        for food in cartFoods {
-            if let existingFood = mergedList.first(where: { $0.yemek_adi == food.yemek_adi }) {
-                let newQuantity = Int(existingFood.yemek_siparis_adet!)! + Int(food.yemek_siparis_adet!)!
-                let newPrice = Int(existingFood.yemek_fiyat!)! + Int(food.yemek_fiyat!)!
-                
-                DispatchQueue.global().async {
-                    self.deleteCart(cart_food_id: Int(existingFood.sepet_yemek_id!)!, nickname: existingFood.kullanici_adi!)
-                    self.deleteCart(cart_food_id: Int(food.sepet_yemek_id!)!, nickname: food.kullanici_adi!)
-                    
-                    DispatchQueue.main.async {
-                        self.addCart(food_name: food.yemek_adi!, food_image_name: food.yemek_resim_adi!, food_price: newPrice, order_quantity: newQuantity, nickname: food.kullanici_adi!)
-                    }
-                }
-            } else {
-                mergedList.append(food)
-            }
-        }
-        
-        return mergedList
     }
 }

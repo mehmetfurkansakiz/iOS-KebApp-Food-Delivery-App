@@ -17,8 +17,9 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var detailNavigationBar: UINavigationItem!
     
     var food: Foods?
+    var cartFoodsList = [CartFoods]()
     var imageUrl: URL?
-    var viewModel = FoodDetailViewModel()
+    var viewModel = FoodCartViewModel()
     var quantity: Int?
     var price: Int?
     var totalPrice: Int?
@@ -27,34 +28,16 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "\(food!.yemek_adi ?? "Meal") Detail"
-        let appearance = UINavigationBarAppearance()
+        configure()
         
-        appearance.backgroundColor = UIColor(named: "mainColor")
-        appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "textColor1")!,.font: UIFont(name: "Anton-Regular", size: 24)!]
-        navigationController?.navigationBar.barStyle = .black
-
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.standardAppearance = appearance
+        _ = viewModel.cartFoodsList.subscribe(onNext: { list in
+            self.cartFoodsList = list
+        })
         
-        if let food = food, let imageUrl = imageUrl {
-            nickname = "furkan_sakiz"
-            quantity = 0
-            price = 0
-            totalPrice = 0
-            
-            labelFoodName.text = food.yemek_adi
-            
-            price = Int(food.yemek_fiyat!)!
-            labelPrice.text = "\(price!) ₺"
-            updateTotalPriceLabel()
-            updateQuantityLabel()
-            
-            // Upload image with Kingfisher
-            foodImageView.kf.setImage(with: imageUrl)
-        }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getCart(nickname: nickname!)
     }
     
     func updateQuantityLabel() {
@@ -84,11 +67,63 @@ class FoodDetailViewController: UIViewController {
         guard let foodName = food?.yemek_adi, let imageName = food?.yemek_resim_adi else {
             return
         }
-        viewModel.addCart(food_name: foodName, food_image_name: imageName, food_price: totalPrice!, order_quantity: quantity!, nickname: nickname!)
+        let existingQuantity = cartControl()
+        let food_price = totalPrice! + (existingQuantity * price!)
+        let order_quantity = quantity! + existingQuantity
+        
+        viewModel.addCart(food_name: foodName,
+                          food_image_name: imageName,
+                          food_price: food_price,
+                          order_quantity: order_quantity,
+                          nickname: nickname!)
         navigationController?.popToRootViewController(animated: true)
-        viewModel.getMergedCart(nickname: nickname!)
     }
     
     @IBAction func buttonLike(_ sender: Any) {
+    }
+}
+
+extension FoodDetailViewController {
+    func cartControl() -> Int {
+        for cartFood in cartFoodsList {
+            if cartFood.yemek_adi == food?.yemek_adi {
+                print("Matched")
+                let quantity = Int(cartFood.yemek_siparis_adet!)!
+                viewModel.deleteCart(cart_food_id: Int(cartFood.sepet_yemek_id!)!, nickname: self.nickname!)
+                return quantity
+            }
+        }
+        return(0)
+    }
+    
+    func configure() {
+        
+        self.navigationItem.title = "\(food!.yemek_adi ?? "Meal") Detail"
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backgroundColor = UIColor(named: "mainColor")
+        appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "textColor1")!,.font: UIFont(name: "Anton-Regular", size: 24)!]
+        navigationController?.navigationBar.barStyle = .black
+
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        
+        if let food = food, let imageUrl = imageUrl {
+            nickname = "furkan_sakiz"
+            quantity = 1
+            price = 0
+            totalPrice = 0
+            
+            labelFoodName.text = food.yemek_adi
+            
+            price = Int(food.yemek_fiyat!)!
+            labelPrice.text = "\(price!) ₺"
+            updateTotalPriceLabel()
+            updateQuantityLabel()
+            
+            // Upload image with Kingfisher
+            foodImageView.kf.setImage(with: imageUrl)
+        }
     }
 }

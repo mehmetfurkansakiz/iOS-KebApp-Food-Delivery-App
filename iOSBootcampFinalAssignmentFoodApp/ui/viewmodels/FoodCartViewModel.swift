@@ -17,16 +17,16 @@ class FoodCartViewModel {
         cartFoodsList = foodRepo.cartFoodsList
     }
     
-    func getMergedCart(nickname: String) {
-        foodRepo.getMergedCart(nickname: nickname)
+    func addCart(food_name: String, food_image_name: String, food_price: Int, order_quantity: Int, nickname: String) {
+        foodRepo.addCart(food_name: food_name, food_image_name: food_image_name, food_price: food_price, order_quantity: order_quantity, nickname: nickname)
     }
     
     func deleteCart(cart_food_id: Int, nickname: String) {
         foodRepo.deleteCart(cart_food_id: cart_food_id, nickname: nickname)
     }
     
-    func resCart(nickname: String) {
-        foodRepo.resCart(nickname: nickname)
+    func getCart(nickname: String) {
+        foodRepo.getCart(nickname: nickname)
     }
     
     func getFoodImageUrl(imageName: String) -> URL? {
