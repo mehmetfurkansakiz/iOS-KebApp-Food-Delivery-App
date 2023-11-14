@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyA1USeGZnrcw8qvmivjHmo40n6XKK3Lqz0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>977746127952</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.info.iOSBootcampFinalAssignmentFoodApp</string>
+	<key>PROJECT_ID</key>
+	<string>kebapp-afd2f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kebapp-afd2f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:977746127952:ios:c4ce6698769cc3093b7555</string>
+</dict>
+</plist>
