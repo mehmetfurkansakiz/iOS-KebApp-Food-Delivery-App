@@ -12,6 +12,8 @@
 		0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */; };
 		0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */; };
 		0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */; };
+		0F17B9332B0D6DBC00D7D3B7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */; };
+		0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F17B9342B0EBDB400D7D3B7 /* User.swift */; };
 		0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6AA2AD32760000E9C77 /* AppDelegate.swift */; };
 		0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6AC2AD32760000E9C77 /* SceneDelegate.swift */; };
 		0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6AE2AD32760000E9C77 /* HomeViewController.swift */; };
@@ -45,6 +47,7 @@
 		0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoods.swift; sourceTree = "<group>"; };
 		0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoodsResponse.swift; sourceTree = "<group>"; };
+		0F17B9342B0EBDB400D7D3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0F2AE6A72AD32760000E9C77 /* iOSBootcampFinalAssignmentFoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBootcampFinalAssignmentFoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2AE6AA2AD32760000E9C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F2AE6AC2AD32760000E9C77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,17 +82,26 @@
 				0F7B65832AD5C0DB007A4F94 /* Kingfisher in Frameworks */,
 				0F8398072AD4688200307711 /* RxSwift in Frameworks */,
 				0F7A24232AD4A74300EC35DD /* Alamofire in Frameworks */,
+				0F17B9332B0D6DBC00D7D3B7 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F17B9312B0D6DBC00D7D3B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0F2AE69E2AD32760000E9C77 = {
 			isa = PBXGroup;
 			children = (
 				0F2AE6A92AD32760000E9C77 /* iOSBootcampFinalAssignmentFoodApp */,
 				0F2AE6A82AD32760000E9C77 /* Products */,
+				0F17B9312B0D6DBC00D7D3B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,8 +157,8 @@
 				0F0BD19E2ADAC25B00FC2697 /* FoodCartViewController.swift */,
 				0F750CC92B0553260058BF06 /* LoginViewController.swift */,
 				0F750CCB2B05784E0058BF06 /* RegisterViewController.swift */,
-				0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */,
 				0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */,
+				0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -177,6 +189,7 @@
 				0F8450462AD882F900AA4507 /* CRUDresponse.swift */,
 				0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */,
 				0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */,
+				0F17B9342B0EBDB400D7D3B7 /* User.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -228,6 +241,7 @@
 				0F7B65822AD5C0DB007A4F94 /* Kingfisher */,
 				0F750C9F2B0413460058BF06 /* FirebaseAuth */,
 				0F750CAB2B0413460058BF06 /* FirebaseFirestore */,
+				0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */,
 			);
 			productName = iOSBootcampFinalAssignmentFoodApp;
 			productReference = 0F2AE6A72AD32760000E9C77 /* iOSBootcampFinalAssignmentFoodApp.app */;
@@ -312,6 +326,7 @@
 				0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */,
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
 				0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */,
+				0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +583,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F750C902B0403E50058BF06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		0F750C9F2B0413460058BF06 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F750C902B0403E50058BF06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
                             self.registerIndicator.stopAnimating()
                         } else {
                             print("Kullanıcı kaydedildi. UID: \(authResult?.user.uid ?? "")")
-                            self.performSegue(withIdentifier: "toLoginVC", sender: nil)
+                            self.performSegue(withIdentifier: "toRegisterCompleteVC", sender: nil)
                             self.registerIndicator.stopAnimating()
                         }
                 }
