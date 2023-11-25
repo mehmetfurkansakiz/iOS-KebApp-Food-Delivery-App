@@ -88,10 +88,3 @@ fastlane/test_output
 # Logs
 logs
 *.log
-
-firebase-debug.log*
-firebase-debug.*.log*
-# Firebase cache
-.firebase/
-# Firebase config
-# .firebaserc
