@@ -30,6 +30,10 @@ class RegisterCompleteViewController: UIViewController {
     
     func appearance(){
         
+        selectImageView.layer.cornerRadius = 100
+        selectImageView.layer.borderWidth = 1
+        selectImageView.layer.borderColor = UIColor.black.cgColor
+        
         selectImageView.isUserInteractionEnabled = true
         let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         selectImageView.addGestureRecognizer(imageTapGesture)
