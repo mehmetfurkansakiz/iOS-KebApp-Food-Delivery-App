@@ -133,11 +133,17 @@ extension RegisterCompleteViewController: UIImagePickerControllerDelegate, UINav
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .photoLibrary
+        pickerController.allowsEditing = true
         present(pickerController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        selectImageView.image = info[.originalImage] as? UIImage
-        self.dismiss(animated: true)
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectImageView.image = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            selectImageView.image = originalImage
+        }
+        
+        dismiss(animated: true)
     }
 }
