@@ -12,6 +12,9 @@
 		0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */; };
 		0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */; };
 		0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */; };
+		0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */; };
+		0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */; };
+		0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0F161B212B1746FD00EC7807 /* SkeletonView */; };
 		0F17B9332B0D6DBC00D7D3B7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */; };
 		0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F17B9342B0EBDB400D7D3B7 /* User.swift */; };
 		0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6AA2AD32760000E9C77 /* AppDelegate.swift */; };
@@ -47,6 +50,8 @@
 		0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoods.swift; sourceTree = "<group>"; };
 		0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoodsResponse.swift; sourceTree = "<group>"; };
+		0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDaoRepository.swift; sourceTree = "<group>"; };
 		0F17B9342B0EBDB400D7D3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0F2AE6A72AD32760000E9C77 /* iOSBootcampFinalAssignmentFoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBootcampFinalAssignmentFoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2AE6AA2AD32760000E9C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F750CA02B0413460058BF06 /* FirebaseAuth in Frameworks */,
+				0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */,
 				0F750CAC2B0413460058BF06 /* FirebaseFirestore in Frameworks */,
 				0F7B65832AD5C0DB007A4F94 /* Kingfisher in Frameworks */,
 				0F8398072AD4688200307711 /* RxSwift in Frameworks */,
@@ -199,6 +205,7 @@
 			children = (
 				0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */,
 				0F0BD1A02ADAE4E400FC2697 /* FoodCartViewModel.swift */,
+				0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0F7A241F2AD4993D00EC35DD /* FoodsDaoRepository.swift */,
+				0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 				0F750C9F2B0413460058BF06 /* FirebaseAuth */,
 				0F750CAB2B0413460058BF06 /* FirebaseFirestore */,
 				0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */,
+				0F161B212B1746FD00EC7807 /* SkeletonView */,
 			);
 			productName = iOSBootcampFinalAssignmentFoodApp;
 			productReference = 0F2AE6A72AD32760000E9C77 /* iOSBootcampFinalAssignmentFoodApp.app */;
@@ -276,6 +285,7 @@
 				0F7A24212AD4A74300EC35DD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0F7B65812AD5C0DB007A4F94 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				0F750C902B0403E50058BF06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0F161B202B1746FC00EC7807 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 0F2AE6A82AD32760000E9C77 /* Products */;
 			projectDirPath = "";
@@ -318,6 +328,7 @@
 				0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */,
 				0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */,
 				0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */,
+				0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */,
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,
 				0F8450472AD882F900AA4507 /* CRUDresponse.swift in Sources */,
@@ -325,6 +336,7 @@
 				0F750CCC2B05784E0058BF06 /* RegisterViewController.swift in Sources */,
 				0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */,
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
+				0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */,
 				0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */,
 				0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */,
 			);
@@ -548,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F161B202B1746FC00EC7807 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
 		0F750C902B0403E50058BF06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -583,6 +603,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F161B212B1746FD00EC7807 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F161B202B1746FC00EC7807 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		0F17B9322B0D6DBC00D7D3B7 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F750C902B0403E50058BF06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
