@@ -18,14 +18,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+        let userDefaults = UserDefaults.standard
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
-            let board = UIStoryboard(name: "Main", bundle: nil)
-            let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
-            window?.rootViewController = homeTabBar
+            let email = currentUser?.email
+            
+            if userDefaults.bool(forKey: "\(email!)_isRegistrationCompleted") {
+                //If the user is logged in and has already completed the registration, redirect to the home page
+                let board = UIStoryboard(name: "Main", bundle: nil)
+                let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
+                window?.rootViewController = homeTabBar
+            } else {
+                //If the user is logged in but has not yet completed the registration, redirect to the registration completion page
+                let board = UIStoryboard(name: "Main", bundle: nil)
+                let registrationVC = board.instantiateViewController(withIdentifier: "registrationComplete") as! RegisterCompleteViewController
+                window?.rootViewController = registrationVC
+            }
         }
-        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

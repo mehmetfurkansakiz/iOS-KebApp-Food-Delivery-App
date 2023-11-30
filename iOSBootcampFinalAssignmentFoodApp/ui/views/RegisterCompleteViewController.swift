@@ -48,11 +48,9 @@ class RegisterCompleteViewController: UIViewController {
 
         let ageComponents = calendar.dateComponents([.year], from: birthDate, to: now)
         if let age = ageComponents.year {
-            // Yaş bilgisini string olarak döndür
             return age
         }
         
-        // Hesaplama başarısız olursa varsayılan değeri döndür
         return 0
     }
     
@@ -73,6 +71,7 @@ class RegisterCompleteViewController: UIViewController {
                     avatarReference.putData(data, metadata: nil) { metadata, error in
                         if error != nil {
                             AlertHelper.createAlert(title: "Error", message: error?.localizedDescription ?? "Error", in: self)
+                            self.registerCompleteIndicator.stopAnimating()
                         } else {
                             avatarReference.downloadURL { url, error in
                                 if error == nil {
@@ -81,6 +80,12 @@ class RegisterCompleteViewController: UIViewController {
                                     //if the profile picture is not uploaded, the default picture from the link "https://www.flaticon.com/free-icon/user_149071" will be uploaded from smashicons.
                                     
                                     let currentDate = Date()
+                                    
+                                    // UserDefaults update
+                                    if let email = Auth.auth().currentUser?.email {
+                                        let userDefaults = UserDefaults.standard
+                                        userDefaults.set(true, forKey: "\(email)_isRegistrationCompleted")
+                                    }
 
                                     // Format the date
                                     let dateFormatter = DateFormatter()
