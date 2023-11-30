@@ -29,6 +29,7 @@ class MyProfileViewController: UIViewController {
         
         // RxSwift
         _ = viewModel.userRepo.user.subscribe(onNext: { user in
+            self.view.hideSkeleton()
             
             if let name = user.name {
                 self.labelName.text = name
@@ -49,7 +50,6 @@ class MyProfileViewController: UIViewController {
                 if let avatarUrl = URL(string: avatarImage) {
                     DispatchQueue.main.async {
                         self.profilePicImage.kf.setImage(with: avatarUrl)
-                        self.view.hideSkeleton()
                     }
                 }
             }
@@ -58,10 +58,10 @@ class MyProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.userRepo.getUser(viewController: self)
         let gradient = SkeletonGradient(baseColor: UIColor.asbestos)
         let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
         view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+        viewModel.userRepo.getUser(viewController: self)
     }
     
     func appearance(){
