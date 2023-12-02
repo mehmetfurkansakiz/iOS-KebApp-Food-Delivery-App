@@ -18,7 +18,11 @@ class MyProfileViewModel {
         user = userRepo.user
     }
     
-    func getFoods(viewController: UIViewController) {
+    func getUser(viewController: UIViewController) {
         userRepo.getUser(viewController: viewController)
+    }
+    
+    func getNickname(completion: @escaping (String?) -> Void) {
+            return userRepo.getNickname(completion: completion)
     }
 }

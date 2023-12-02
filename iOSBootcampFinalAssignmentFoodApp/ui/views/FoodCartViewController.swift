@@ -15,8 +15,9 @@ class FoodCartViewController: UIViewController {
     @IBOutlet weak var labelDiscount: UILabel!
     
     var cartFoodsList = [CartFoods]()
-    var viewModel = FoodCartViewModel()
-    let nickname = "furkan_sakiz"
+    var foodViewModel = FoodCartViewModel()
+    let userViewModel = MyProfileViewModel()
+    var nickname: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +37,14 @@ class FoodCartViewController: UIViewController {
         collectionDesign.itemSize = CGSize(width: itemWidth, height: itemWidth*0.4)
         
         cartCollectionView.collectionViewLayout = collectionDesign
-        
-        _ = viewModel.cartFoodsList.subscribe(onNext: { list in
-            self.cartFoodsList = list
-            DispatchQueue.main.async {
-                self.calculateDiscountedTotalPrice() // calculateDiscountedTotalPrice
-                self.cartCollectionView.reloadData()
-            }
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            self.viewModel.getCart(nickname: self.nickname)
-            self.cartCollectionView.reloadData()
+        userViewModel.getNickname { nickname in
+            self.nickname = nickname
+            print("nickname: \(nickname ?? "No nickname")")
+            self.loadCartData()
+        }
     }
     
     @IBAction func buttonDelete(_ sender: UIButton) {
@@ -59,8 +55,8 @@ class FoodCartViewController: UIViewController {
         if let indexPath = cartCollectionView.indexPath(for: cell) {
             let cartFood = cartFoodsList[indexPath.row]
             if let sepetYemekID = Int(cartFood.sepet_yemek_id!) {
-                viewModel.deleteCart(cart_food_id: sepetYemekID, nickname: self.nickname)
-                viewModel.getCart(nickname: self.nickname)
+                foodViewModel.deleteCart(cart_food_id: sepetYemekID, nickname: nickname!)
+                foodViewModel.getCart(nickname: nickname!)
             }
         }
         self.cartCollectionView.reloadData()
@@ -80,6 +76,19 @@ class FoodCartViewController: UIViewController {
         
         labelDiscount.text = String(format: "- %.2f ₺", discountAmount)
         labelTotalPrice.text = String(format: "%.2f ₺", discountedPrice)
+        self.cartCollectionView.reloadData()
+    }
+    
+    func loadCartData() {
+        _ = foodViewModel.cartFoodsList.subscribe(onNext: { list in
+            self.cartFoodsList = list
+            DispatchQueue.main.async {
+                self.calculateDiscountedTotalPrice()
+                self.cartCollectionView.reloadData()
+            }
+        })
+        
+        self.foodViewModel.getCart(nickname: self.nickname!)
         self.cartCollectionView.reloadData()
     }
 }
@@ -104,7 +113,7 @@ extension FoodCartViewController: UICollectionViewDelegate, UICollectionViewData
             cell.labelPrice.text = "Per Price: \(perPrice) ₺"
         }
         
-        if let imageUrl = viewModel.getFoodImageUrl(imageName: cart.yemek_resim_adi!) {
+        if let imageUrl = foodViewModel.getFoodImageUrl(imageName: cart.yemek_resim_adi!) {
             cell.cartImageView.kf.setImage(with: imageUrl)
         }
         

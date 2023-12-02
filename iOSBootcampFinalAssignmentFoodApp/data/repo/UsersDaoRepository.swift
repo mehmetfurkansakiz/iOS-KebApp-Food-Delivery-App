@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class UsersDaoRepository {
     var user = BehaviorSubject<User>(value: User())
+    var nickname: String?
     
     func getUser(viewController: UIViewController) {
         let firestore = Firestore.firestore()
@@ -33,6 +34,7 @@ class UsersDaoRepository {
                     
                     if let nickname = document.get("nickname") as? String {
                         profile.nickname = nickname
+                        self.nickname = nickname
                     }
                     if let email = document.get("email") as? String {
                         profile.email = email
@@ -53,8 +55,31 @@ class UsersDaoRepository {
                         profile.avatarImage = avatarImage
                     }
                 }
+                self.nickname = profile.nickname
                 self.user.onNext(profile)
             }
         }
     }
+    
+    func getNickname(completion: @escaping (String?) -> Void) {
+            let firestore = Firestore.firestore()
+
+            firestore.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { snapshot, error in
+                if error != nil {
+                    completion(nil)
+                    return
+                } else {
+                    guard let querySnapshot = snapshot else {
+                        completion(nil)
+                        return
+                    }
+
+                    for document in querySnapshot.documents {
+                        if let nickname = document.get("nickname") as? String {
+                            completion(nickname)
+                        }
+                    }
+                }
+            }
+        }
 }

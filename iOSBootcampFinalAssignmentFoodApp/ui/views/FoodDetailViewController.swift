@@ -18,8 +18,9 @@ class FoodDetailViewController: UIViewController {
     
     var food: Foods?
     var cartFoodsList = [CartFoods]()
+    let foodViewModel = FoodCartViewModel()
+    let userViewModel = MyProfileViewModel()
     var imageUrl: URL?
-    var viewModel = FoodCartViewModel()
     var quantity: Int?
     var price: Int?
     var totalPrice: Int?
@@ -28,16 +29,19 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
-        
-        _ = viewModel.cartFoodsList.subscribe(onNext: { list in
-            self.cartFoodsList = list
-        })
-        
+        appearance()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getCart(nickname: nickname!)
+        userViewModel.getNickname { nickname in
+            self.nickname = nickname
+            print("nickname: \(nickname ?? "No nickname")")
+            self.foodViewModel.getCart(nickname: nickname!)
+            
+            _ = self.foodViewModel.cartFoodsList.subscribe(onNext: { list in
+                self.cartFoodsList = list
+            })
+        }
     }
     
     func updateQuantityLabel() {
@@ -71,7 +75,7 @@ class FoodDetailViewController: UIViewController {
         let food_price = totalPrice! + (existingQuantity * price!)
         let order_quantity = quantity! + existingQuantity
         
-        viewModel.addCart(food_name: foodName,
+        foodViewModel.addCart(food_name: foodName,
                           food_image_name: imageName,
                           food_price: food_price,
                           order_quantity: order_quantity,
@@ -89,14 +93,14 @@ extension FoodDetailViewController {
             if cartFood.yemek_adi == food?.yemek_adi {
                 print("Matched")
                 let quantity = Int(cartFood.yemek_siparis_adet!)!
-                viewModel.deleteCart(cart_food_id: Int(cartFood.sepet_yemek_id!)!, nickname: self.nickname!)
+                foodViewModel.deleteCart(cart_food_id: Int(cartFood.sepet_yemek_id!)!, nickname: self.nickname!)
                 return quantity
             }
         }
         return(0)
     }
     
-    func configure() {
+    func appearance() {
         
         self.navigationItem.title = "\(food!.yemek_adi ?? "Meal") Detail"
         let appearance = UINavigationBarAppearance()
@@ -110,7 +114,6 @@ extension FoodDetailViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         
         if let food = food, let imageUrl = imageUrl {
-            nickname = "furkan_sakiz"
             quantity = 1
             price = 0
             totalPrice = 0
