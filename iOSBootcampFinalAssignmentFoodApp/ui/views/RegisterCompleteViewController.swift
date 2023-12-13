@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import FirebaseStorage
-import FirebaseFirestore
-import FirebaseAuth
 
 class RegisterCompleteViewController: UIViewController {
 
@@ -18,6 +15,7 @@ class RegisterCompleteViewController: UIViewController {
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var registerCompleteIndicator: UIActivityIndicatorView!
     
+    var viewModel = MyProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,66 +58,10 @@ class RegisterCompleteViewController: UIViewController {
         if nameTextField.text != "" && surnameTextField.text != "" {
             if age >= 18 {
                 self.registerCompleteIndicator.startAnimating()
-                let storage = Storage.storage()
-                let storageReference = storage.reference()
-                let avatarFolder = storageReference.child("avatars")
+                let data = selectImageView.image
                 
-                if let data = selectImageView.image?.jpegData(compressionQuality: 0.5) {
-                    let uuid = UUID().uuidString
-                    let avatarReference = avatarFolder.child("\(uuid).jpg")
-                    
-                    avatarReference.putData(data, metadata: nil) { metadata, error in
-                        if error != nil {
-                            AlertHelper.createAlert(title: "Error", message: error?.localizedDescription ?? "Error", in: self)
-                            self.registerCompleteIndicator.stopAnimating()
-                        } else {
-                            avatarReference.downloadURL { url, error in
-                                if error == nil {
-                                    
-                                    let avatarUrl = url?.absoluteString
-                                    //if the profile picture is not uploaded, the default picture from the link "https://www.flaticon.com/free-icon/user_149071" will be uploaded from smashicons.
-                                    
-                                    let currentDate = Date()
-                                    
-                                    // UserDefaults update
-                                    if let email = Auth.auth().currentUser?.email {
-                                        let userDefaults = UserDefaults.standard
-                                        userDefaults.set(true, forKey: "\(email)_isRegistrationCompleted")
-                                    }
-
-                                    // Format the date
-                                    let dateFormatter = DateFormatter()
-                                    dateFormatter.dateFormat = "dd-MM-yyyy"  // d-M-yyyy formatında da kullanabilirsiniz
-                                    let formattedDate = dateFormatter.string(from: currentDate)
-                                    
-                                    // FIRESTORE DATABASE
-                                    let firestoreDatabase = Firestore.firestore()
-                                    var firestoreReference : DocumentReference? = nil
-                                    
-                                    let firestoreRegister = [
-                                        "name" : self.nameTextField.text!,
-                                        "surname" : self.surnameTextField.text!,
-                                        "nickname" : "\(self.nameTextField.text!)_\(self.surnameTextField.text!)",
-                                        "email" : Auth.auth().currentUser!.email!,
-                                        "age" : age,
-                                        "avatarUrl" : avatarUrl!,
-                                        "registrationDate" : formattedDate,
-                                    ] as [String : Any]
-                                    
-                                    firestoreReference = firestoreDatabase.collection("Accounts").addDocument(data: firestoreRegister, completion: { error in
-                                        if error != nil {
-                                            AlertHelper.createAlert(title: "Error", message: error?.localizedDescription ?? "Error", in: self)
-                                        } else {
-                                            self.performSegue(withIdentifier: "registerToHome", sender: nil)
-                                        }
-                                        self.registerCompleteIndicator.stopAnimating()
-                                    })
-                                }
-                            }
-                        }
-                    }
-                }
-                
+                viewModel.registerUser(viewController: self, data: data, name: nameTextField.text!, surname: surnameTextField.text!, nickname: "\(self.nameTextField.text!)_\(self.surnameTextField.text!)", age: age)
+                self.registerCompleteIndicator.stopAnimating()
             } else {
                 AlertHelper.createAlert(title: "Error", message: "You must be 18 or older to register.", in: self)
                 self.registerCompleteIndicator.stopAnimating()

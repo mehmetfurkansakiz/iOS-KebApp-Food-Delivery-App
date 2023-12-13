@@ -18,6 +18,10 @@ class MyProfileViewModel {
         user = userRepo.user
     }
     
+    func registerUser(viewController: UIViewController, data: UIImage?, name: String, surname: String, nickname: String, age: Int) {
+        userRepo.registerUser(viewController: viewController, data: data, name: name, surname: surname, nickname: nickname, age: age)
+    }
+    
     func getUser(viewController: UIViewController) {
         userRepo.getUser(viewController: viewController)
     }
