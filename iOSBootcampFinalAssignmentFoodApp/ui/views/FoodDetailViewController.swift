@@ -17,6 +17,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var detailNavigationBar: UINavigationItem!
     
     var food: Foods?
+    var cartFood = CartFoods()
     var cartFoodsList = [CartFoods]()
     let foodViewModel = FoodCartViewModel()
     let userViewModel = MyProfileViewModel()
@@ -68,18 +69,16 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func buttonAddCart(_ sender: Any) {
-        guard let foodName = food?.yemek_adi, let imageName = food?.yemek_resim_adi else {
-            return
-        }
         let existingQuantity = cartControl()
-        let food_price = totalPrice! + (existingQuantity * price!)
         let order_quantity = quantity! + existingQuantity
         
-        foodViewModel.addCart(food_name: foodName,
-                          food_image_name: imageName,
-                          food_price: food_price,
-                          order_quantity: order_quantity,
-                          nickname: nickname!)
+        cartFood.yemek_adi = food?.yemek_adi
+        cartFood.yemek_resim_adi = food?.yemek_resim_adi
+        cartFood.yemek_fiyat = String(totalPrice! + (existingQuantity * price!))
+        cartFood.yemek_siparis_adet = String(order_quantity)
+        cartFood.kullanici_adi = nickname
+        
+        foodViewModel.addCart(cartFood: cartFood)
         navigationController?.popToRootViewController(animated: true)
     }
     

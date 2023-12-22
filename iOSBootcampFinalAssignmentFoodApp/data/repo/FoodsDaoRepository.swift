@@ -37,9 +37,12 @@ class FoodsDaoRepository {
         }
     }
     
-    func addCart(food_name: String, food_image_name: String, food_price: Int, order_quantity: Int, nickname: String) {
-        let params: Parameters = ["yemek_adi":food_name, "yemek_resim_adi":food_image_name, "yemek_fiyat":food_price, "yemek_siparis_adet":order_quantity, "kullanici_adi":nickname]
-        
+    func addCart(cartFood: CartFoods) {
+        let params: Parameters = ["yemek_adi":cartFood.yemek_adi!,
+                                  "yemek_resim_adi":cartFood.yemek_resim_adi!,
+                                  "yemek_fiyat":cartFood.yemek_fiyat!,
+                                  "yemek_siparis_adet":cartFood.yemek_siparis_adet!,
+                                  "kullanici_adi":cartFood.kullanici_adi!]
         AF.request("http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php", method: .post, parameters: params).response { response in
             if let data = response.data {
                 do {
