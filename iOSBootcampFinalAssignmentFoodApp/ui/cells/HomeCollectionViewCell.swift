@@ -12,6 +12,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var labelFoodName: UILabel!
+    @IBOutlet weak var buttonLike: UIButton!
+    @IBOutlet weak var buttonAdd: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +27,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 3
+    }
+    
+    func configureLikeButton(isLiked: Bool) {
+        if isLiked {
+            buttonLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            buttonLike.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 }
