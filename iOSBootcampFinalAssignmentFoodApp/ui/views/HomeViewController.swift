@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import RxSwift
+import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -76,10 +77,12 @@ class HomeViewController: UIViewController {
         userViewModel.getNickname { nickname in
             self.nickname = nickname
             print("nickname: \(nickname ?? "No nickname")")
-            self.foodCartViewModel.getCart(nickname: nickname!)
+            self.foodCartViewModel.getCart(nickname: self.nickname!)
             
-            _ = self.foodCartViewModel.cartFoodsList.subscribe(onNext: { list in
+            _ = self.foodCartViewModel.foodRepo.cartFoodsList.subscribe(onNext: { list in
                 self.cartFoodsList = list
+                self.homeCollectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
             })
         }
     }
@@ -96,8 +99,18 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        homeCollectionView.isSkeletonable = true
+        homeCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver),
+                                                        animation: nil,
+                                                        transition: .crossDissolve(0.25))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.likesViewModel.getLikes(viewController: self)
+        }
         foodViewModel.getFoods(searchText: "")
         likesViewModel.getLikes(viewController: self)
+        if let nickname = self.nickname {
+            self.foodCartViewModel.getCart(nickname: nickname)
+        }
     }
 }
 
@@ -107,8 +120,18 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, SkeletonCollectionViewDataSource {
     
+    //MARK: - SkeletonView
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "foodCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return foodsList.count
+    }
+    
+    //MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foodsList.count
     }
@@ -149,6 +172,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     
+    //MARK: - Buttons
     @objc func likeButtonTapped(_ sender: UIButton) {
         var isLiked = false
         for i in likedFoodList {

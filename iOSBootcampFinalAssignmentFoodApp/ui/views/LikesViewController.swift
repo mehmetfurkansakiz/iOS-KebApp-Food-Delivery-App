@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import Kingfisher
+import SkeletonView
 
 class LikesViewController: UIViewController {
     
@@ -28,11 +29,12 @@ class LikesViewController: UIViewController {
         likesTableView.dataSource = self
         likesTableView.delegate = self
         
-        _ = likesViewModel.likedFoodList.subscribe(onNext: { list in
+        _ = likesViewModel.likeRepo.likedFoodList.subscribe(onNext: { list in
             self.likedFoodList = list
             DispatchQueue.main.async {
                 self.likesTableView.reloadData()
                 self.checkLikes()
+                
             }
         })
         userViewModel.getNickname { nickname in
@@ -41,14 +43,20 @@ class LikesViewController: UIViewController {
             
             _ = self.foodCartViewModel.cartFoodsList.subscribe(onNext: { list in
                 self.cartFoodsList = list
+                self.likesTableView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
             })
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        likesTableView.isSkeletonable = true
+        likesTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver),
+                                                        animation: nil,
+                                                        transition: .crossDissolve(0.25))
         likesViewModel.getLikes(viewController: self)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.foodCartViewModel.getCart(nickname: self.nickname!)
+        if let nickname = self.nickname {
+            self.foodCartViewModel.getCart(nickname: nickname)
         }
     }
     
@@ -65,8 +73,17 @@ class LikesViewController: UIViewController {
     }
 }
 
-extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
+extension LikesViewController: UITableViewDelegate, SkeletonTableViewDataSource {
+    //MARK: - SkeletonView
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "likesCell"
+    }
     
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return likedFoodList.count
+    }
+    
+    //MARK: - TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return likedFoodList.count
     }

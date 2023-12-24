@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SkeletonView
 
 class FoodCartViewController: UIViewController {
     
@@ -40,6 +41,10 @@ class FoodCartViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        view.isSkeletonable = true
+        view.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver),
+                                                        animation: nil,
+                                                        transition: .crossDissolve(0.25))
         userViewModel.getNickname { nickname in
             self.nickname = nickname
             print("nickname: \(nickname ?? "No nickname")")
@@ -84,6 +89,10 @@ class FoodCartViewController: UIViewController {
             self.cartFoodsList = list
             DispatchQueue.main.async {
                 self.calculateDiscountedTotalPrice()
+                
+                self.view.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+                
                 self.cartCollectionView.reloadData()
             }
         })
@@ -93,8 +102,17 @@ class FoodCartViewController: UIViewController {
     }
 }
 
-extension FoodCartViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FoodCartViewController: UICollectionViewDelegate, SkeletonCollectionViewDataSource {
     
+    //MARK: - SkeletonView
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "cartCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cartFoodsList.count
+    }
+    //MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cartFoodsList.count
     }
