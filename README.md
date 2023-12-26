@@ -33,7 +33,7 @@ KebApp is a simple food ordering application developed for educational purposes.
 
 ## Mimari / Architecture 📐
 <div>
-  <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/ad25f86b-99de-44a4-a590-b02b73760752" width="1400" height="360"/>
+  <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/ad25f86b-99de-44a4-a590-b02b73760752"/>
 </div>
 
 [TR]🇹🇷
