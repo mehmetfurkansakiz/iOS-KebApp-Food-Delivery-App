@@ -12,28 +12,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        let userDefaults = UserDefaults.standard
         let currentUser = Auth.auth().currentUser
+        let userViewModel = MyProfileViewModel()
         
-        if currentUser != nil {
-            let email = currentUser?.email
-            
-            if userDefaults.bool(forKey: "\(email!)_isRegistrationCompleted") {
-                //If the user is logged in and has already completed the registration, redirect to the home page
-                let board = UIStoryboard(name: "Main", bundle: nil)
-                let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
-                window?.rootViewController = homeTabBar
-            } else {
-                //If the user is logged in but has not yet completed the registration, redirect to the registration completion page
-                let board = UIStoryboard(name: "Main", bundle: nil)
-                let registrationVC = board.instantiateViewController(withIdentifier: "registrationComplete") as! RegisterCompleteViewController
-                window?.rootViewController = registrationVC
+        if let email = currentUser?.email {
+            print("currentUser = \(email)")
+            userViewModel.getRegistrationStatus { isRegistered in
+                if isRegistered {
+                    //If the user is logged in and has already completed the registration, redirect to the home page
+                    let board = UIStoryboard(name: "Main", bundle: nil)
+                    let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
+                    self.window?.rootViewController = homeTabBar
+                } else {
+                    //If the user is logged in but has not yet completed the registration, redirect to the registration completion page
+                    let board = UIStoryboard(name: "Main", bundle: nil)
+                    let registrationVC = board.instantiateViewController(withIdentifier: "registrationComplete") as! RegisterCompleteViewController
+                    self.window?.rootViewController = registrationVC
+                }
             }
         }
         guard let _ = (scene as? UIWindowScene) else { return }

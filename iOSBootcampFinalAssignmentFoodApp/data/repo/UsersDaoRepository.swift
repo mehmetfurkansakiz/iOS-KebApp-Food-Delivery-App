@@ -38,12 +38,6 @@ class UsersDaoRepository {
                             
                             let currentDate = Date()
                             
-                            // UserDefaults update
-                            if let email = Auth.auth().currentUser?.email {
-                                let userDefaults = UserDefaults.standard
-                                userDefaults.set(true, forKey: "\(email)_isRegistrationCompleted")
-                            }
-                            
                             // Format the date
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "dd-MM-yyyy"  // d-M-yyyy formatında da kullanabilirsiniz
@@ -143,6 +137,23 @@ class UsersDaoRepository {
                         completion(nickname)
                     }
                 }
+            }
+        }
+    }
+    
+    func getRegistrationStatus(completion: @escaping (Bool) -> Void) {
+        let firestore = Firestore.firestore()
+
+        firestore.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { snapshot, error in
+            if error != nil {
+                completion(false)
+                return
+            } else {
+                guard let querySnapshot = snapshot else {
+                    completion(false)
+                    return
+                }
+                completion(querySnapshot.documents.count > 0)
             }
         }
     }

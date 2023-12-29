@@ -27,6 +27,10 @@ class MyProfileViewModel {
     }
     
     func getNickname(completion: @escaping (String?) -> Void) {
-            return userRepo.getNickname(completion: completion)
+        return userRepo.getNickname(completion: completion)
+    }
+    
+    func getRegistrationStatus(completion: @escaping (Bool) -> Void) {
+        return userRepo.getRegistrationStatus(completion: completion)
     }
 }
