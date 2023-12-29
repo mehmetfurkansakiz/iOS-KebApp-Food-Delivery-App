@@ -27,6 +27,9 @@
 		0F3F311A2B09483D00FCF112 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */; };
 		0F3F311C2B0BD4E900FCF112 /* RegisterCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */; };
 		0F44BF852B08278E001C89DC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44BF842B08278E001C89DC /* AlertHelper.swift */; };
+		0F6400CC2B3F74AB00D6CCE9 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6400CB2B3F74AB00D6CCE9 /* GifLoader.swift */; };
+		0F6400CF2B3F774D00D6CCE9 /* loadingKebabGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F6400CE2B3F774D00D6CCE9 /* loadingKebabGif.gif */; };
+		0F6400D12B3F78DF00D6CCE9 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */; };
 		0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7106B22AD35E9000E21FF5 /* Foods.swift */; };
 		0F750C922B0410A40058BF06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F750C912B0410A40058BF06 /* GoogleService-Info.plist */; };
 		0F750CA02B0413460058BF06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0F750C9F2B0413460058BF06 /* FirebaseAuth */; };
@@ -69,6 +72,9 @@
 		0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompleteViewController.swift; sourceTree = "<group>"; };
 		0F44BF842B08278E001C89DC /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		0F6400CB2B3F74AB00D6CCE9 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
+		0F6400CE2B3F774D00D6CCE9 /* loadingKebabGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingKebabGif.gif; sourceTree = "<group>"; };
+		0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		0F7106B22AD35E9000E21FF5 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
 		0F750C912B0410A40058BF06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F750CC92B0553260058BF06 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			children = (
 				0F2AE6AA2AD32760000E9C77 /* AppDelegate.swift */,
 				0F2AE6AC2AD32760000E9C77 /* SceneDelegate.swift */,
+				0F6400CD2B3F772100D6CCE9 /* Gifs */,
 				0F44BF832B08274E001C89DC /* helpers */,
 				0F8398082AD4784B00307711 /* fonts */,
 				0F7106AC2AD35DA300E21FF5 /* ui */,
@@ -149,8 +156,17 @@
 			isa = PBXGroup;
 			children = (
 				0F44BF842B08278E001C89DC /* AlertHelper.swift */,
+				0F6400CB2B3F74AB00D6CCE9 /* GifLoader.swift */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		0F6400CD2B3F772100D6CCE9 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				0F6400CE2B3F774D00D6CCE9 /* loadingKebabGif.gif */,
+			);
+			path = Gifs;
 			sourceTree = "<group>";
 		};
 		0F7106AC2AD35DA300E21FF5 /* ui */ = {
@@ -174,6 +190,7 @@
 				0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */,
 				0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */,
 				0FCFC3492B213D210056A711 /* LikesViewController.swift */,
+				0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -315,6 +332,7 @@
 			files = (
 				0F83980A2AD4798800307711 /* Anton-Regular.ttf in Resources */,
 				0F2AE6B72AD32766000E9C77 /* LaunchScreen.storyboard in Resources */,
+				0F6400CF2B3F774D00D6CCE9 /* loadingKebabGif.gif in Resources */,
 				0F750C922B0410A40058BF06 /* GoogleService-Info.plist in Resources */,
 				0F2AE6B42AD32766000E9C77 /* Assets.xcassets in Resources */,
 				0F2AE6B22AD32760000E9C77 /* Main.storyboard in Resources */,
@@ -335,12 +353,14 @@
 				0F3F311A2B09483D00FCF112 /* MyProfileViewController.swift in Sources */,
 				0F7A24252AD4AAE300EC35DD /* FoodsResponse.swift in Sources */,
 				0F7A24202AD4993D00EC35DD /* FoodsDaoRepository.swift in Sources */,
+				0F6400CC2B3F74AB00D6CCE9 /* GifLoader.swift in Sources */,
 				0F0BD19F2ADAC25B00FC2697 /* FoodCartViewController.swift in Sources */,
 				0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */,
 				0F44BF852B08278E001C89DC /* AlertHelper.swift in Sources */,
 				0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */,
 				0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */,
 				0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */,
+				0F6400D12B3F78DF00D6CCE9 /* LaunchScreenViewController.swift in Sources */,
 				0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */,
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,

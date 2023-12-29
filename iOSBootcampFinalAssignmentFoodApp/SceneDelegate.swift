@@ -20,23 +20,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let currentUser = Auth.auth().currentUser
         let userViewModel = MyProfileViewModel()
         
-        if let email = currentUser?.email {
-            print("currentUser = \(email)")
-            userViewModel.getRegistrationStatus { isRegistered in
-                if isRegistered {
-                    //If the user is logged in and has already completed the registration, redirect to the home page
-                    let board = UIStoryboard(name: "Main", bundle: nil)
-                    let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
-                    self.window?.rootViewController = homeTabBar
-                } else {
-                    //If the user is logged in but has not yet completed the registration, redirect to the registration completion page
-                    let board = UIStoryboard(name: "Main", bundle: nil)
-                    let registrationVC = board.instantiateViewController(withIdentifier: "registrationComplete") as! RegisterCompleteViewController
-                    self.window?.rootViewController = registrationVC
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if let email = currentUser?.email {
+                print("currentUser = \(email)")
+                userViewModel.getRegistrationStatus { isRegistered in
+                    if isRegistered {
+                        //If the user is logged in and has already completed the registration, redirect to the home page
+                        let board = UIStoryboard(name: "Main", bundle: nil)
+                        let homeTabBar = board.instantiateViewController(withIdentifier: "homeTabBar") as! UITabBarController
+                        self.window?.rootViewController = homeTabBar
+                    } else {
+                        //If the user is logged in but has not yet completed the registration, redirect to the registration completion page
+                        let board = UIStoryboard(name: "Main", bundle: nil)
+                        let registrationVC = board.instantiateViewController(withIdentifier: "registrationComplete") as! RegisterCompleteViewController
+                        self.window?.rootViewController = registrationVC
+                    }
                 }
+            } else {
+                let board = UIStoryboard(name: "Main", bundle: nil)
+                let loginVC = board.instantiateViewController(withIdentifier: "loginPage") as! LoginViewController
+                self.window?.rootViewController = loginVC
+
             }
+            guard let _ = (scene as? UIWindowScene) else { return }
         }
-        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
