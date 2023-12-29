@@ -19,7 +19,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appearance()
-        
+        passwordTextField.disableAutoFill()
+        passwordRepeatTextField.disableAutoFill()
     }
     
     @IBAction func buttonRegister(_ sender: Any) {
@@ -31,7 +32,7 @@ class RegisterViewController: UIViewController {
                             AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: self)
                             self.registerIndicator.stopAnimating()
                         } else {
-                            print("Kullanıcı kaydedildi. UID: \(authResult?.user.uid ?? "")")
+                            print("User Registered. UID: \(authResult?.user.uid ?? "")")
                             self.performSegue(withIdentifier: "toRegisterCompleteVC", sender: nil)
                             self.registerIndicator.stopAnimating()
                         }
@@ -54,5 +55,15 @@ class RegisterViewController: UIViewController {
         registerImageView.image = UIImage(named: "kebab")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
         view.addGestureRecognizer(tapGesture)
+    }
+}
+
+extension UITextField {
+    func disableAutoFill() {
+        if #available(iOS 12, *) {
+            textContentType = .oneTimeCode
+        } else {
+            textContentType = .init(rawValue: "")
+        }
     }
 }
