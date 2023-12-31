@@ -157,4 +157,14 @@ class UsersDaoRepository {
             }
         }
     }
+    
+    func sendPasswordReset(email: String, viewController: UIViewController) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: viewController)
+            } else {
+                AlertHelper.createAlert(title: "Success", message: "Password reset email sent. Please check your inbox.", in: viewController)
+            }
+        }
+    }
 }

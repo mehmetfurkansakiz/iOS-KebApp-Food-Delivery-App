@@ -33,4 +33,8 @@ class MyProfileViewModel {
     func getRegistrationStatus(completion: @escaping (Bool) -> Void) {
         return userRepo.getRegistrationStatus(completion: completion)
     }
+    
+    func sendPasswordReset(email: String, viewController: UIViewController) {
+        userRepo.sendPasswordReset(email: email, viewController: viewController)
+    }
 }

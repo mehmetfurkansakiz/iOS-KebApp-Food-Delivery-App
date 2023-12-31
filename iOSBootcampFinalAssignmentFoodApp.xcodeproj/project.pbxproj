@@ -12,6 +12,7 @@
 		0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */; };
 		0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */; };
 		0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */; };
+		0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */; };
 		0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */; };
 		0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */; };
 		0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0F161B212B1746FD00EC7807 /* SkeletonView */; };
@@ -57,6 +58,7 @@
 		0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoods.swift; sourceTree = "<group>"; };
 		0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoodsResponse.swift; sourceTree = "<group>"; };
+		0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDaoRepository.swift; sourceTree = "<group>"; };
 		0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesDaoRepository.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */,
 				0FCFC3492B213D210056A711 /* LikesViewController.swift */,
 				0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */,
+				0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
 				0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */,
 				0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */,
+				0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */,
 				0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */,
 				0FCFC34C2B239CE60056A711 /* LikesTableViewCell.swift in Sources */,
 				0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */,

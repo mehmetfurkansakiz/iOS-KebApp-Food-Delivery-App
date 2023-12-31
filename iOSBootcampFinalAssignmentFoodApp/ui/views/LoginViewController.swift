@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var labelForgotPassword: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +49,22 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc func labelForgotPasswordTapped() {
+        performSegue(withIdentifier: "toForgotPasswordVC", sender: nil)
+    }
+    
     @objc func keyboardDismiss(){
         view.endEditing(true)
     }
     
     func appearance(){
         loginImageView.image = UIImage(named: "kebab")
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
-        view.addGestureRecognizer(tapGesture)
+        
+        let keyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
+        let forgotTapGesture = UITapGestureRecognizer(target: self, action: #selector(labelForgotPasswordTapped))
+        
+        labelForgotPassword.isUserInteractionEnabled = true
+        labelForgotPassword.addGestureRecognizer(forgotTapGesture)
+        view.addGestureRecognizer(keyboardTapGesture)
     }
 }
