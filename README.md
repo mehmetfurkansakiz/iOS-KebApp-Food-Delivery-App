@@ -8,7 +8,7 @@ KebApp eğitim amaçlı geliştirilmiş basit bir yemek siparişi uygulamasıdı
 [EN]🇬🇧
 KebApp is a simple food ordering application developed for educational purposes. I originally submitted it as a graduation project for the 'iOS Developer Bootcamp with Swift' and I continue to develop it after graduation. This project includes functions such as user registration, login, user data storage, profile viewing and saving liked items using Firebase. In addition, I used the Alamofire package to get, display, and add products to the cart or delete and display them in the cart. I also wrote my code based on the MVVM architecture and RxSwift as a plus. Overall, this project serves as a basic project designed to show the various features learned during the bootcamp, what I learned by researching after, and what I can do as I continue to learn.
 
-## Uygulamadan Ekran Görüntüleri / SS from the app 🏞
+## SS from the app 🏞
 
 | **Login Screen**       | **Register Screen** | **Register Complete Screen** | **Home Screen**       |
 |------------------------|---------------------|------------------------------|-----------------------|
@@ -16,12 +16,12 @@ KebApp is a simple food ordering application developed for educational purposes.
 | **Food Detail Screen** | **Likes Screen**    | **Food Cart Screen**         | **My Profile Screen** |
 |<img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/9e303da7-5387-45d6-af9b-bfdebf650113"/>|<img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/d89a3f81-262e-4830-b1d7-5e512dd0a31b"/>|<img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/36f2ca00-d779-44cb-bf8e-8d22cb41534a"/>|<img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/5f7606fd-600e-4f73-a4d3-f8f7e51ef37b"/>|
 
-## Uygulamadan Video / Video from the app 📱
+## Video from the app 📱
 <div> 
   <video src='https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/c28f7b85-2cb3-4894-94a2-958a893a56d1'/>
 </div>
 
-## Teknoloji Paketleri / Tech Stack 📚
+## Tech Stack 📚
 
 * [Firebase Authentication](https://firebase.google.com/docs/auth)
 * [Firebase Firestore](https://firebase.google.com/docs/firestore)
@@ -31,7 +31,7 @@ KebApp is a simple food ordering application developed for educational purposes.
 * [SkeletonView](https://github.com/Juanpe/SkeletonView)
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
 
-## Mimari / Architecture 📐
+## Architecture 📐
 <div>
   <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/ad25f86b-99de-44a4-a590-b02b73760752"/>
 </div>
