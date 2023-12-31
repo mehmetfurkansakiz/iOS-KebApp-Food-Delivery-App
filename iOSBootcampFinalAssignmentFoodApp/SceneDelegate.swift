@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         let currentUser = Auth.auth().currentUser
-        let userViewModel = MyProfileViewModel()
+        let userViewModel = UserViewModel()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if let email = currentUser?.email {

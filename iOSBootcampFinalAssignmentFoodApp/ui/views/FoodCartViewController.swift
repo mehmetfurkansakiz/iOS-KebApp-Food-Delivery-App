@@ -17,7 +17,7 @@ class FoodCartViewController: UIViewController {
     
     var cartFoodsList = [CartFoods]()
     var foodViewModel = FoodCartViewModel()
-    let userViewModel = MyProfileViewModel()
+    let userViewModel = UserViewModel()
     var nickname: String?
     
     override func viewDidLoad() {

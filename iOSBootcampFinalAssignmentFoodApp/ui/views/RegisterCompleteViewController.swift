@@ -15,7 +15,7 @@ class RegisterCompleteViewController: UIViewController {
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var registerCompleteIndicator: UIActivityIndicatorView!
     
-    var viewModel = MyProfileViewModel()
+    var viewModel = UserViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         

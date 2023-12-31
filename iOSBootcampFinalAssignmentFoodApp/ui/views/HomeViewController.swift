@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     var foodsList = [Foods]()
     let likesViewModel = LikesViewModel()
     var likedFoodList = [Foods]()
-    let userViewModel = MyProfileViewModel()
+    let userViewModel = UserViewModel()
     var cartFoodsList = [CartFoods]()
     let foodCartViewModel = FoodCartViewModel()
     var nickname: String?

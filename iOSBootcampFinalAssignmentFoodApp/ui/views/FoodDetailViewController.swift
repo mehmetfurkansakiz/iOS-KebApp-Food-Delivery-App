@@ -20,7 +20,7 @@ class FoodDetailViewController: UIViewController {
     var cartFood = CartFoods()
     var cartFoodsList = [CartFoods]()
     let foodViewModel = FoodCartViewModel()
-    let userViewModel = MyProfileViewModel()
+    let userViewModel = UserViewModel()
     var imageUrl: URL?
     var quantity: Int?
     var price: Int?

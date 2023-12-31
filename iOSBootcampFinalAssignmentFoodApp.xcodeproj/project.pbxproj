@@ -13,7 +13,7 @@
 		0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */; };
 		0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */; };
 		0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */; };
-		0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */; };
+		0F161B1D2B13D9FF00EC7807 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */; };
 		0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */; };
 		0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0F161B212B1746FD00EC7807 /* SkeletonView */; };
 		0F161B282B1D3B6F00EC7807 /* LikesDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */; };
@@ -59,7 +59,7 @@
 		0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoods.swift; sourceTree = "<group>"; };
 		0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoodsResponse.swift; sourceTree = "<group>"; };
 		0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDaoRepository.swift; sourceTree = "<group>"; };
 		0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesDaoRepository.swift; sourceTree = "<group>"; };
 		0F17B9342B0EBDB400D7D3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			children = (
 				0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */,
 				0F0BD1A02ADAE4E400FC2697 /* FoodCartViewModel.swift */,
-				0F161B1C2B13D9FF00EC7807 /* MyProfileViewModel.swift */,
+				0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */,
 				0FCFC3472B2137310056A711 /* LikesViewModel.swift */,
 			);
 			path = viewmodels;
@@ -364,7 +364,7 @@
 				0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */,
 				0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */,
 				0F6400D12B3F78DF00D6CCE9 /* LaunchScreenViewController.swift in Sources */,
-				0F161B1D2B13D9FF00EC7807 /* MyProfileViewModel.swift in Sources */,
+				0F161B1D2B13D9FF00EC7807 /* UserViewModel.swift in Sources */,
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,
 				0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */,

@@ -13,7 +13,7 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     
-    let userViewModel = MyProfileViewModel()
+    let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

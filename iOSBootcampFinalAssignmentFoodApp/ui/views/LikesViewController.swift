@@ -20,7 +20,7 @@ class LikesViewController: UIViewController {
     let foodCartViewModel = FoodCartViewModel()
     var cartFoodsList = [CartFoods]()
     var cartFood = CartFoods()
-    let userViewModel = MyProfileViewModel()
+    let userViewModel = UserViewModel()
     var nickname: String?
     
     override func viewDidLoad() {

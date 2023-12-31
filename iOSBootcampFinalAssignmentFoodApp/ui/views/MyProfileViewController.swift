@@ -21,7 +21,7 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var labelSurname: UILabel!
     @IBOutlet weak var labelAge: UILabel!
     
-    let viewModel = MyProfileViewModel()
+    let viewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
