@@ -67,7 +67,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gb6-qM-Qea">
-                                                    <rect key="frame" x="8" y="154" width="184" height="75"/>
+                                                    <rect key="frame" x="8" y="154" width="184" height="71"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0F-zT-O6m">
                                                             <rect key="frame" x="0.0" y="0.0" width="184" height="29"/>
@@ -91,10 +91,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sTO-aa-59z">
-                                                            <rect key="frame" x="0.0" y="37" width="184" height="38"/>
+                                                            <rect key="frame" x="0.0" y="37" width="184" height="34"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQA-1o-2lr">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="134" height="34"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                     <color key="textColor" name="mainColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -110,14 +110,14 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-Dg-zzX">
-                                                                    <rect key="frame" x="146" y="0.0" width="38" height="38"/>
+                                                                    <rect key="frame" x="150" y="0.0" width="34" height="34"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="38" id="QNQ-gQ-GWa"/>
-                                                                        <constraint firstAttribute="height" constant="38" id="YjN-vM-Cy2"/>
+                                                                        <constraint firstAttribute="width" constant="34" id="QNQ-gQ-GWa"/>
+                                                                        <constraint firstAttribute="height" constant="34" id="YjN-vM-Cy2"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="filled" image="plus.app.fill" catalog="system" title="">
-                                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="34"/>
                                                                         <color key="baseForegroundColor" name="mainColor"/>
                                                                         <color key="baseBackgroundColor" name="textColor1"/>
                                                                     </buttonConfiguration>
@@ -1448,15 +1448,15 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEM-V4-TIZ">
-                                                    <rect key="frame" x="112" y="103" width="48" height="48"/>
+                                                    <rect key="frame" x="118" y="109" width="42" height="42"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="dv6-7A-fGc"/>
-                                                        <constraint firstAttribute="width" constant="48" id="qFn-nu-ThP"/>
+                                                        <constraint firstAttribute="height" constant="42" id="dv6-7A-fGc"/>
+                                                        <constraint firstAttribute="width" constant="42" id="qFn-nu-ThP"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" image="plus.app.fill" catalog="system" title="">
                                                         <backgroundConfiguration key="background"/>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="36"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="42"/>
                                                         <color key="baseForegroundColor" name="mainColor"/>
                                                         <color key="baseBackgroundColor" name="textColor1"/>
                                                     </buttonConfiguration>
@@ -1559,7 +1559,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h9P-p9-kRi"/>
         <segue reference="ChQ-iR-HEL"/>
         <segue reference="h6H-Z5-bSP"/>
     </inferredMetricsTieBreakers>
