@@ -29,9 +29,6 @@ class MyProfileViewController: UIViewController {
         
         // RxSwift
         _ = viewModel.userRepo.user.subscribe(onNext: { user in
-            self.view.stopSkeletonAnimation()
-            self.view.hideSkeleton()
-            
             if let name = user.name {
                 self.labelName.text = name
             }
@@ -51,6 +48,8 @@ class MyProfileViewController: UIViewController {
                 if let avatarUrl = URL(string: avatarImage) {
                     DispatchQueue.main.async {
                         self.profilePicImage.kf.setImage(with: avatarUrl)
+                        self.view.stopSkeletonAnimation()
+                        self.view.hideSkeleton()
                     }
                 }
             }
