@@ -29,28 +29,28 @@ class MyProfileViewController: UIViewController {
         
         // RxSwift
         _ = viewModel.userRepo.user.subscribe(onNext: { user in
-            if let name = user.name {
-                self.labelName.text = name
-            }
-            if let surname = user.surname {
-                self.labelSurname.text = surname
-            }
-            if let age = user.age {
-                self.labelAge.text = String(age)
-            }
-            if let nickname = user.nickname {
-                self.labelNickname.text = nickname
-            }
-            if let email = user.email {
-                self.labelEmail.text = email
-            }
             if let avatarImage = user.avatarImage {
                 if let avatarUrl = URL(string: avatarImage) {
                     DispatchQueue.main.async {
                         self.profilePicImage.kf.setImage(with: avatarUrl)
-                        self.view.stopSkeletonAnimation()
-                        self.view.hideSkeleton()
+                        if let name = user.name {
+                            self.labelName.text = name
+                        }
+                        if let surname = user.surname {
+                            self.labelSurname.text = surname
+                        }
+                        if let age = user.age {
+                            self.labelAge.text = String(age)
+                        }
+                        if let nickname = user.nickname {
+                            self.labelNickname.text = nickname
+                        }
+                        if let email = user.email {
+                            self.labelEmail.text = email
+                        }
                     }
+                    self.view.stopSkeletonAnimation()
+                    self.view.hideSkeleton()
                 }
             }
         })
