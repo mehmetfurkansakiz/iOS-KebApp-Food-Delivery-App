@@ -18,8 +18,8 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var labelNickname: UILabel!
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelSurname: UILabel!
     @IBOutlet weak var labelAge: UILabel!
+    @IBOutlet weak var AddressesStackView: UIStackView!
     
     let viewModel = UserViewModel()
     
@@ -33,11 +33,8 @@ class MyProfileViewController: UIViewController {
                 if let avatarUrl = URL(string: avatarImage) {
                     DispatchQueue.main.async {
                         self.profilePicImage.kf.setImage(with: avatarUrl)
-                        if let name = user.name {
-                            self.labelName.text = name
-                        }
-                        if let surname = user.surname {
-                            self.labelSurname.text = surname
+                        if let name = user.name, let surname = user.surname {
+                            self.labelName.text = "\(name) \(surname)"
                         }
                         if let age = user.age {
                             self.labelAge.text = String(age)
@@ -68,6 +65,9 @@ class MyProfileViewController: UIViewController {
         profilePicImage.layer.cornerRadius = 80
         profilePicImage.layer.borderWidth = 1
         profilePicImage.layer.borderColor = UIColor.black.cgColor
+        
+        let addressesGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addressesStackViewTapped))
+        AddressesStackView.addGestureRecognizer(addressesGestureRecognizer)
     }
 
     @IBAction func buttonQuit(_ sender: Any) {
@@ -77,5 +77,9 @@ class MyProfileViewController: UIViewController {
         } catch {
             AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: self)
         }
+    }
+    
+    @objc func addressesStackViewTapped() {
+        performSegue(withIdentifier: "toAddresses", sender: nil)
     }
 }
