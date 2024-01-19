@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F08A8492B51A71400A0041D /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F08A8482B51A71400A0041D /* AddressesViewController.swift */; };
+		0F08A84B2B51F93D00A0041D /* AddressesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F08A84A2B51F93D00A0041D /* AddressesTableViewCell.swift */; };
 		0F0BD19F2ADAC25B00FC2697 /* FoodCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD19E2ADAC25B00FC2697 /* FoodCartViewController.swift */; };
 		0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A02ADAE4E400FC2697 /* FoodCartViewModel.swift */; };
 		0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */; };
 		0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */; };
 		0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */; };
 		0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */; };
+		0F13DED72B44CD6600352578 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DED62B44CD6600352578 /* CheckoutViewController.swift */; };
+		0F13DED92B457D8600352578 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F13DED82B457D8600352578 /* MapKit.framework */; };
+		0F13DEDB2B49699600352578 /* PaymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DEDA2B49699600352578 /* PaymentMethodTableViewCell.swift */; };
+		0F13DEDD2B496A6000352578 /* OrderSumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DEDC2B496A6000352578 /* OrderSumTableViewCell.swift */; };
+		0F13DF1B2B4B06E300352578 /* AddressDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DF1A2B4B06E300352578 /* AddressDaoRepository.swift */; };
+		0F13DF1D2B4B07CB00352578 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F13DF1C2B4B07CB00352578 /* Address.swift */; };
 		0F161B1D2B13D9FF00EC7807 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */; };
 		0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */; };
 		0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0F161B212B1746FD00EC7807 /* SkeletonView */; };
@@ -45,6 +53,8 @@
 		0F8398072AD4688200307711 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0F8398062AD4688200307711 /* RxSwift */; };
 		0F83980A2AD4798800307711 /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F8398092AD4798800307711 /* Anton-Regular.ttf */; };
 		0F8450472AD882F900AA4507 /* CRUDresponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8450462AD882F900AA4507 /* CRUDresponse.swift */; };
+		0F9919782B4DFC5100C81F09 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9919772B4DFC5100C81F09 /* AddressViewController.swift */; };
+		0F99BC402B4EAEEF001FA821 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */; };
 		0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */; };
 		0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */; };
 		0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC3472B2137310056A711 /* LikesViewModel.swift */; };
@@ -53,12 +63,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F08A8482B51A71400A0041D /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
+		0F08A84A2B51F93D00A0041D /* AddressesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewCell.swift; sourceTree = "<group>"; };
 		0F0BD19E2ADAC25B00FC2697 /* FoodCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartViewController.swift; sourceTree = "<group>"; };
 		0F0BD1A02ADAE4E400FC2697 /* FoodCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartViewModel.swift; sourceTree = "<group>"; };
 		0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoods.swift; sourceTree = "<group>"; };
 		0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFoodsResponse.swift; sourceTree = "<group>"; };
 		0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		0F13DED62B44CD6600352578 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		0F13DED82B457D8600352578 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F13DEDA2B49699600352578 /* PaymentMethodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTableViewCell.swift; sourceTree = "<group>"; };
+		0F13DEDC2B496A6000352578 /* OrderSumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSumTableViewCell.swift; sourceTree = "<group>"; };
+		0F13DF1A2B4B06E300352578 /* AddressDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDaoRepository.swift; sourceTree = "<group>"; };
+		0F13DF1C2B4B07CB00352578 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDaoRepository.swift; sourceTree = "<group>"; };
 		0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesDaoRepository.swift; sourceTree = "<group>"; };
@@ -86,6 +104,8 @@
 		0F7B65842AD5C5BC007A4F94 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		0F8398092AD4798800307711 /* Anton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anton-Regular.ttf"; sourceTree = "<group>"; };
 		0F8450462AD882F900AA4507 /* CRUDresponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDresponse.swift; sourceTree = "<group>"; };
+		0F9919772B4DFC5100C81F09 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0FCFC3472B2137310056A711 /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +120,7 @@
 			files = (
 				0F750CA02B0413460058BF06 /* FirebaseAuth in Frameworks */,
 				0F161B222B1746FD00EC7807 /* SkeletonView in Frameworks */,
+				0F13DED92B457D8600352578 /* MapKit.framework in Frameworks */,
 				0F750CAC2B0413460058BF06 /* FirebaseFirestore in Frameworks */,
 				0F7B65832AD5C0DB007A4F94 /* Kingfisher in Frameworks */,
 				0F8398072AD4688200307711 /* RxSwift in Frameworks */,
@@ -114,6 +135,7 @@
 		0F17B9312B0D6DBC00D7D3B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F13DED82B457D8600352578 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,6 +216,9 @@
 				0FCFC3492B213D210056A711 /* LikesViewController.swift */,
 				0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */,
 				0F13DED42B40A9B600352578 /* ForgotPasswordViewController.swift */,
+				0F13DED62B44CD6600352578 /* CheckoutViewController.swift */,
+				0F9919772B4DFC5100C81F09 /* AddressViewController.swift */,
+				0F08A8482B51A71400A0041D /* AddressesViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -204,6 +229,9 @@
 				0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */,
 				0F0BD1A22ADAE50600FC2697 /* FoodCartCollectionViewCell.swift */,
 				0FCFC34B2B239CE60056A711 /* LikesTableViewCell.swift */,
+				0F13DEDA2B49699600352578 /* PaymentMethodTableViewCell.swift */,
+				0F13DEDC2B496A6000352578 /* OrderSumTableViewCell.swift */,
+				0F08A84A2B51F93D00A0041D /* AddressesTableViewCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -226,6 +254,7 @@
 				0F0BD1A42ADB54E000FC2697 /* CartFoods.swift */,
 				0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */,
 				0F17B9342B0EBDB400D7D3B7 /* User.swift */,
+				0F13DF1C2B4B07CB00352578 /* Address.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -237,6 +266,7 @@
 				0F0BD1A02ADAE4E400FC2697 /* FoodCartViewModel.swift */,
 				0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */,
 				0FCFC3472B2137310056A711 /* LikesViewModel.swift */,
+				0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -247,6 +277,7 @@
 				0F7A241F2AD4993D00EC35DD /* FoodsDaoRepository.swift */,
 				0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */,
 				0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */,
+				0F13DF1A2B4B06E300352578 /* AddressDaoRepository.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -349,6 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F13DEDD2B496A6000352578 /* OrderSumTableViewCell.swift in Sources */,
+				0F13DF1B2B4B06E300352578 /* AddressDaoRepository.swift in Sources */,
 				0F3F311C2B0BD4E900FCF112 /* RegisterCompleteViewController.swift in Sources */,
 				0F7B65852AD5C5BC007A4F94 /* FoodDetailViewController.swift in Sources */,
 				0F0BD1A52ADB54E100FC2697 /* CartFoods.swift in Sources */,
@@ -359,7 +392,9 @@
 				0F6400CC2B3F74AB00D6CCE9 /* GifLoader.swift in Sources */,
 				0F0BD19F2ADAC25B00FC2697 /* FoodCartViewController.swift in Sources */,
 				0F0BD1A72ADC1CF100FC2697 /* CartFoodsResponse.swift in Sources */,
+				0F08A84B2B51F93D00A0041D /* AddressesTableViewCell.swift in Sources */,
 				0F44BF852B08278E001C89DC /* AlertHelper.swift in Sources */,
+				0F08A8492B51A71400A0041D /* AddressesViewController.swift in Sources */,
 				0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */,
 				0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */,
 				0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */,
@@ -368,17 +403,22 @@
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,
 				0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */,
+				0F13DED72B44CD6600352578 /* CheckoutViewController.swift in Sources */,
 				0F8450472AD882F900AA4507 /* CRUDresponse.swift in Sources */,
 				0F750CCA2B0553260058BF06 /* LoginViewController.swift in Sources */,
 				0F750CCC2B05784E0058BF06 /* RegisterViewController.swift in Sources */,
 				0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */,
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
+				0F9919782B4DFC5100C81F09 /* AddressViewController.swift in Sources */,
 				0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */,
+				0F13DEDB2B49699600352578 /* PaymentMethodTableViewCell.swift in Sources */,
 				0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */,
 				0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */,
 				0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */,
+				0F99BC402B4EAEEF001FA821 /* AddressViewModel.swift in Sources */,
 				0FCFC34C2B239CE60056A711 /* LikesTableViewCell.swift in Sources */,
 				0F17B9352B0EBDB400D7D3B7 /* User.swift in Sources */,
+				0F13DF1D2B4B07CB00352578 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +581,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.info.iOSBootcampFinalAssignmentFoodApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -570,6 +613,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.info.iOSBootcampFinalAssignmentFoodApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
