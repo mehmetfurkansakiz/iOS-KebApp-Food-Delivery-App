@@ -88,3 +88,6 @@ fastlane/test_output
 # Logs
 logs
 *.log
+
+# Firebase
+GoogleService-Info.plist
