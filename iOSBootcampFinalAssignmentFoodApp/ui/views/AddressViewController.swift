@@ -54,7 +54,7 @@ class AddressViewController: UIViewController {
             doorNumberTF.text = editAddress?.doorNumber
             telephoneNumberTF.text = editAddress?.telephoneNo
         } else {
-            navigationItem.title = "Add your address"
+            navigationItem.title = "Save your address"
         }
     }
 
@@ -73,17 +73,17 @@ class AddressViewController: UIViewController {
             return
         }
         
+        address.city = city
+        address.state = state
+        address.street = street
+        address.addressTitle = addressTitle
+        address.floorNumber = floorNumber
+        address.postalCode = postalCode
+        address.buildingNumber = buildingNumber
+        address.doorNumber = doorNumber
+        address.telephoneNo = telephoneNumber
+        
         if editAddress != nil {
-            
-            address.city = city
-            address.state = state
-            address.street = street
-            address.addressTitle = addressTitle
-            address.floorNumber = floorNumber
-            address.postalCode = postalCode
-            address.buildingNumber = buildingNumber
-            address.doorNumber = doorNumber
-            address.telephoneNo = telephoneNumber
             
             addressViewModel.editAddress(viewController: self, addressID: (editAddress?.id)!, updatedAddress: address)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -92,18 +92,11 @@ class AddressViewController: UIViewController {
         } else {
             
             address.id = UUID().uuidString
-            address.city = city
-            address.state = state
-            address.street = street
-            address.addressTitle = addressTitle
-            address.floorNumber = floorNumber
-            address.postalCode = postalCode
-            address.buildingNumber = buildingNumber
-            address.doorNumber = doorNumber
-            address.telephoneNo = telephoneNumber
             
             addressViewModel.addAddress(viewController: self, address: address)
-            performSegue(withIdentifier: "toMyProfile", sender: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     

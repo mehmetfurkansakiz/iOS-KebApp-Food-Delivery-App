@@ -20,6 +20,7 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelAge: UILabel!
     @IBOutlet weak var AddressesStackView: UIStackView!
+    @IBOutlet weak var PaymentStackView: UIStackView!
     
     let viewModel = UserViewModel()
     
@@ -68,6 +69,9 @@ class MyProfileViewController: UIViewController {
         
         let addressesGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addressesStackViewTapped))
         AddressesStackView.addGestureRecognizer(addressesGestureRecognizer)
+        
+        let paymentGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(paymentStackViewTapped))
+        PaymentStackView.addGestureRecognizer(paymentGestureRecognizer)
     }
 
     @IBAction func buttonQuit(_ sender: Any) {
@@ -81,5 +85,9 @@ class MyProfileViewController: UIViewController {
     
     @objc func addressesStackViewTapped() {
         performSegue(withIdentifier: "toAddresses", sender: nil)
+    }
+    
+    @objc func paymentStackViewTapped() {
+        performSegue(withIdentifier: "toPayment", sender: nil)
     }
 }
