@@ -33,14 +33,16 @@
 		0F2AE6B22AD32760000E9C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B02AD32760000E9C77 /* Main.storyboard */; };
 		0F2AE6B42AD32766000E9C77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B32AD32766000E9C77 /* Assets.xcassets */; };
 		0F2AE6B72AD32766000E9C77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B52AD32766000E9C77 /* LaunchScreen.storyboard */; };
+		0F34B9E22B5C2B1100F9818E /* PaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */; };
 		0F3F311A2B09483D00FCF112 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */; };
 		0F3F311C2B0BD4E900FCF112 /* RegisterCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */; };
 		0F44BF852B08278E001C89DC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44BF842B08278E001C89DC /* AlertHelper.swift */; };
+		0F470E1F2B5FE603000AB3BB /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F470E1E2B5FE603000AB3BB /* CardViewController.swift */; };
+		0F470E212B607AED000AB3BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F470E202B607AED000AB3BB /* GoogleService-Info.plist */; };
 		0F6400CC2B3F74AB00D6CCE9 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6400CB2B3F74AB00D6CCE9 /* GifLoader.swift */; };
 		0F6400CF2B3F774D00D6CCE9 /* loadingKebabGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F6400CE2B3F774D00D6CCE9 /* loadingKebabGif.gif */; };
 		0F6400D12B3F78DF00D6CCE9 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */; };
 		0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7106B22AD35E9000E21FF5 /* Foods.swift */; };
-		0F750C922B0410A40058BF06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F750C912B0410A40058BF06 /* GoogleService-Info.plist */; };
 		0F750CA02B0413460058BF06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0F750C9F2B0413460058BF06 /* FirebaseAuth */; };
 		0F750CAC2B0413460058BF06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F750CAB2B0413460058BF06 /* FirebaseFirestore */; };
 		0F750CCA2B0553260058BF06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F750CC92B0553260058BF06 /* LoginViewController.swift */; };
@@ -57,9 +59,12 @@
 		0F99BC402B4EAEEF001FA821 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */; };
 		0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */; };
 		0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */; };
+		0FA064262B5C82D0007710B7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA064252B5C82D0007710B7 /* Cards.swift */; };
 		0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC3472B2137310056A711 /* LikesViewModel.swift */; };
 		0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC3492B213D210056A711 /* LikesViewController.swift */; };
 		0FCFC34C2B239CE60056A711 /* LikesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC34B2B239CE60056A711 /* LikesTableViewCell.swift */; };
+		0FF29CF92B5D994900B2D7C4 /* PaymentDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF29CF82B5D994900B2D7C4 /* PaymentDaoRepository.swift */; };
+		0FF29CFB2B5DB8F600B2D7C4 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF29CFA2B5DB8F600B2D7C4 /* PaymentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,14 +94,16 @@
 		0F2AE6B32AD32766000E9C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2AE6B62AD32766000E9C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2AE6B82AD32766000E9C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsViewController.swift; sourceTree = "<group>"; };
 		0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompleteViewController.swift; sourceTree = "<group>"; };
 		0F44BF842B08278E001C89DC /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		0F470E1E2B5FE603000AB3BB /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		0F470E202B607AED000AB3BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F6400CB2B3F74AB00D6CCE9 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
 		0F6400CE2B3F774D00D6CCE9 /* loadingKebabGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingKebabGif.gif; sourceTree = "<group>"; };
 		0F6400D02B3F78DF00D6CCE9 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		0F7106B22AD35E9000E21FF5 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
-		0F750C912B0410A40058BF06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F750CC92B0553260058BF06 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F750CCB2B05784E0058BF06 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0F7A241F2AD4993D00EC35DD /* FoodsDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsDaoRepository.swift; sourceTree = "<group>"; };
@@ -108,9 +115,12 @@
 		0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0FA064252B5C82D0007710B7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		0FCFC3472B2137310056A711 /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
 		0FCFC3492B213D210056A711 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
 		0FCFC34B2B239CE60056A711 /* LikesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesTableViewCell.swift; sourceTree = "<group>"; };
+		0FF29CF82B5D994900B2D7C4 /* PaymentDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDaoRepository.swift; sourceTree = "<group>"; };
+		0FF29CFA2B5DB8F600B2D7C4 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +181,7 @@
 				0F2AE6B32AD32766000E9C77 /* Assets.xcassets */,
 				0F2AE6B52AD32766000E9C77 /* LaunchScreen.storyboard */,
 				0F2AE6B82AD32766000E9C77 /* Info.plist */,
-				0F750C912B0410A40058BF06 /* GoogleService-Info.plist */,
+				0F470E202B607AED000AB3BB /* GoogleService-Info.plist */,
 			);
 			path = iOSBootcampFinalAssignmentFoodApp;
 			sourceTree = "<group>";
@@ -219,6 +229,8 @@
 				0F13DED62B44CD6600352578 /* CheckoutViewController.swift */,
 				0F9919772B4DFC5100C81F09 /* AddressViewController.swift */,
 				0F08A8482B51A71400A0041D /* AddressesViewController.swift */,
+				0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */,
+				0F470E1E2B5FE603000AB3BB /* CardViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -255,6 +267,7 @@
 				0F0BD1A62ADC1CF100FC2697 /* CartFoodsResponse.swift */,
 				0F17B9342B0EBDB400D7D3B7 /* User.swift */,
 				0F13DF1C2B4B07CB00352578 /* Address.swift */,
+				0FA064252B5C82D0007710B7 /* Cards.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -267,6 +280,7 @@
 				0F161B1C2B13D9FF00EC7807 /* UserViewModel.swift */,
 				0FCFC3472B2137310056A711 /* LikesViewModel.swift */,
 				0F99BC3F2B4EAEEF001FA821 /* AddressViewModel.swift */,
+				0FF29CFA2B5DB8F600B2D7C4 /* PaymentViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -278,6 +292,7 @@
 				0F161B1E2B13E0F500EC7807 /* UsersDaoRepository.swift */,
 				0F161B272B1D3B6F00EC7807 /* LikesDaoRepository.swift */,
 				0F13DF1A2B4B06E300352578 /* AddressDaoRepository.swift */,
+				0FF29CF82B5D994900B2D7C4 /* PaymentDaoRepository.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -366,8 +381,8 @@
 			files = (
 				0F83980A2AD4798800307711 /* Anton-Regular.ttf in Resources */,
 				0F2AE6B72AD32766000E9C77 /* LaunchScreen.storyboard in Resources */,
+				0F470E212B607AED000AB3BB /* GoogleService-Info.plist in Resources */,
 				0F6400CF2B3F774D00D6CCE9 /* loadingKebabGif.gif in Resources */,
-				0F750C922B0410A40058BF06 /* GoogleService-Info.plist in Resources */,
 				0F2AE6B42AD32766000E9C77 /* Assets.xcassets in Resources */,
 				0F2AE6B22AD32760000E9C77 /* Main.storyboard in Resources */,
 			);
@@ -388,6 +403,7 @@
 				0F161B282B1D3B6F00EC7807 /* LikesDaoRepository.swift in Sources */,
 				0F3F311A2B09483D00FCF112 /* MyProfileViewController.swift in Sources */,
 				0F7A24252AD4AAE300EC35DD /* FoodsResponse.swift in Sources */,
+				0F470E1F2B5FE603000AB3BB /* CardViewController.swift in Sources */,
 				0F7A24202AD4993D00EC35DD /* FoodsDaoRepository.swift in Sources */,
 				0F6400CC2B3F74AB00D6CCE9 /* GifLoader.swift in Sources */,
 				0F0BD19F2ADAC25B00FC2697 /* FoodCartViewController.swift in Sources */,
@@ -402,6 +418,7 @@
 				0F161B1D2B13D9FF00EC7807 /* UserViewModel.swift in Sources */,
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,
+				0F34B9E22B5C2B1100F9818E /* PaymentMethodsViewController.swift in Sources */,
 				0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */,
 				0F13DED72B44CD6600352578 /* CheckoutViewController.swift in Sources */,
 				0F8450472AD882F900AA4507 /* CRUDresponse.swift in Sources */,
@@ -410,10 +427,13 @@
 				0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */,
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
 				0F9919782B4DFC5100C81F09 /* AddressViewController.swift in Sources */,
+				0FF29CF92B5D994900B2D7C4 /* PaymentDaoRepository.swift in Sources */,
+				0FA064262B5C82D0007710B7 /* Cards.swift in Sources */,
 				0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */,
 				0F13DEDB2B49699600352578 /* PaymentMethodTableViewCell.swift in Sources */,
 				0F161B1F2B13E0F500EC7807 /* UsersDaoRepository.swift in Sources */,
 				0F13DED52B40A9B600352578 /* ForgotPasswordViewController.swift in Sources */,
+				0FF29CFB2B5DB8F600B2D7C4 /* PaymentViewModel.swift in Sources */,
 				0F2AE6AD2AD32760000E9C77 /* SceneDelegate.swift in Sources */,
 				0F99BC402B4EAEEF001FA821 /* AddressViewModel.swift in Sources */,
 				0FCFC34C2B239CE60056A711 /* LikesTableViewCell.swift in Sources */,
