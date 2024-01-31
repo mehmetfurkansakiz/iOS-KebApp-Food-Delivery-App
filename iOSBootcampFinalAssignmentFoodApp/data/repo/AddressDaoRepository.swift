@@ -46,6 +46,7 @@ class AddressDaoRepository {
                             AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: viewController)
                         } else {
                             print("Address added successfully")
+                            self.getAddress(viewController: viewController)
                         }
                     }
                 }
@@ -109,6 +110,7 @@ class AddressDaoRepository {
                                         AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
                                     } else {
                                         AlertHelper.createAlert(title: "Success", message: "Address has been successfully removed.", in: viewController)
+                                        self.getAddress(viewController: viewController)
                                     }
                                 }
                             }

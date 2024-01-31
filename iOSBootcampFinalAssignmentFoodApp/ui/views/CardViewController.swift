@@ -60,17 +60,14 @@ class CardViewController: UIViewController {
         if editCard != nil {
             
             paymentViewModel.editCard(viewController: self, cardID: (editCard?.id)!, updatedCard: card)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigationController?.popViewController(animated: true)
-            }
         } else {
             
             card.id = UUID().uuidString
-            
             paymentViewModel.addCard(viewController: self, card: card)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigationController?.popViewController(animated: true)
-            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

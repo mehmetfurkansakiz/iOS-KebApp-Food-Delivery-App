@@ -53,6 +53,7 @@ class FoodsDaoRepository {
                 } catch {
                     print(error.localizedDescription)
                 }
+                self.getCart(nickname: cartFood.kullanici_adi!)
             }
         }
     }
@@ -91,6 +92,7 @@ class FoodsDaoRepository {
                 } catch {
                     print(error.localizedDescription)
                 }
+                self.getCart(nickname: nickname)
             }
         }
     }

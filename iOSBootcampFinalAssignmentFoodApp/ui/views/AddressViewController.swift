@@ -86,17 +86,14 @@ class AddressViewController: UIViewController {
         if editAddress != nil {
             
             addressViewModel.editAddress(viewController: self, addressID: (editAddress?.id)!, updatedAddress: address)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigationController?.popViewController(animated: true)
-            }
         } else {
             
             address.id = UUID().uuidString
-            
             addressViewModel.addAddress(viewController: self, address: address)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigationController?.popViewController(animated: true)
-            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

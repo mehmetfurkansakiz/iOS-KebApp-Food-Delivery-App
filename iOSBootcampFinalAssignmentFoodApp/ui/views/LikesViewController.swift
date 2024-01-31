@@ -111,11 +111,6 @@ extension LikesViewController: UITableViewDelegate, SkeletonTableViewDataSource 
     
     @objc func likeButtonTapped(_ sender: UIButton) {
         likesViewModel.undoLike(viewController: self, food: likedFoodList[sender.tag])
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.likesViewModel.getLikes(viewController: self)
-        }
-        
     }
     
     @objc func addButtonTapped(_ sender: UIButton) {
@@ -132,10 +127,6 @@ extension LikesViewController: UITableViewDelegate, SkeletonTableViewDataSource 
         
         AlertHelper.createAlert(title: "Success", message: "\(cartFood.yemek_adi!) successfully added to cart", in: self)
         foodCartViewModel.addCart(cartFood: cartFood)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.foodCartViewModel.getCart(nickname: self.nickname!)
-        }
-        
     }
     
     func cartControl(selectedFood: Foods) -> Int {

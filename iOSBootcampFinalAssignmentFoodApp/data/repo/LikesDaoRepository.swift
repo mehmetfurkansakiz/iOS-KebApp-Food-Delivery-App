@@ -36,6 +36,7 @@ class LikesDaoRepository {
                 AlertHelper.createAlert(title: "Error", message: error?.localizedDescription ?? "Error", in: viewController)
             } else {
                 AlertHelper.createAlert(title: "Success", message: "Food has been successfully liked.", in: viewController)
+                self.getLikes(viewController: viewController)
             }
         })
     }
@@ -55,6 +56,7 @@ class LikesDaoRepository {
                         AlertHelper.createAlert(title: "Error", message: error?.localizedDescription ?? "Error", in: viewController)
                     } else {
                         AlertHelper.createAlert(title: "Success", message: "Food has been successfully removed.", in: viewController)
+                        self.getLikes(viewController: viewController)
                     }
                 }
             }
