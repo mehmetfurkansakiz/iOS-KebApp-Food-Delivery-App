@@ -15,6 +15,7 @@ class AddressesViewController: UIViewController {
     
     let addressViewModel = AddressViewModel()
     var addressList =  [Address]()
+    var defaultAddress: Address?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class AddressesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         addressViewModel.getAddress(viewController: self)
+        addressViewModel.getDefaultAddress(viewController: self) { address in
+            self.defaultAddress = address
+            self.addressesTableView.reloadData()
+        }
     }
     
     func checkAddress() {
@@ -68,7 +73,35 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.labelAddressName.text = addresses.addressTitle
         cell.labelAddressText.text = "\(addresses.state!), \(addresses.street!), \(addresses.doorNumber!), \(addresses.postalCode!), \(addresses.city!)"
         
+        if defaultAddress?.id == addresses.id {
+            cell.checkmarkImageView.isHidden = false
+        } else {
+            cell.checkmarkImageView.isHidden = true
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard addressList[indexPath.row].id! != defaultAddress?.id else {
+            return
+        }
+        
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overFullScreen
+        loadingVC.modalTransitionStyle = .crossDissolve
+        present(loadingVC, animated: true, completion: nil)
+        
+        addressViewModel.setDefaultAddress(viewController: self, defaultAddressID: addressList[indexPath.row].id!) {
+            self.addressViewModel.getDefaultAddress(viewController: self) { address in
+                self.defaultAddress = address
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.dismiss(animated: true, completion: nil)
+                    self.addressesTableView.reloadData()
+                }
+            }
+        }
     }
     
     @objc func editButtonTapped(_ sender: UIButton) {
@@ -91,6 +124,4 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
-    
 }

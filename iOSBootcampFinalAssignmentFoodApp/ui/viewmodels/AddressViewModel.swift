@@ -32,4 +32,12 @@ class AddressViewModel {
     func editAddress(viewController: UIViewController, addressID: String, updatedAddress: Address) {
         addressRepo.editAddress(viewController: viewController, addressID: addressID, updatedAddress: updatedAddress)
     }
+    
+    func setDefaultAddress(viewController: UIViewController, defaultAddressID: String, completion: @escaping () -> Void) {
+        addressRepo.setDefaultAddressID(viewController: viewController, defaultAddressID: defaultAddressID, completion: completion)
+    }
+    
+    func getDefaultAddress(viewController: UIViewController, completion: @escaping (Address?) -> Void) {
+        addressRepo.getDefaultAddress(viewController: viewController, completion: completion)
+    }
 }

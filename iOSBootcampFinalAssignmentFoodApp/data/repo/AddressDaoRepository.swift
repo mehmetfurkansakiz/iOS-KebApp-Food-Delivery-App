@@ -85,7 +85,7 @@ class AddressDaoRepository {
                     }
                 }
             }
-         }
+        }
     }
     
     func deleteAddress(viewController: UIViewController, addressID: String) {
@@ -161,6 +161,68 @@ class AddressDaoRepository {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+    
+    func setDefaultAddressID(viewController: UIViewController,defaultAddressID: String, completion: @escaping () -> Void) {
+        
+        let account = firestoreDatabase.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
+        
+        account.getDocuments { snapshot, error in
+            if error != nil {
+                AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+            } else if let documents = snapshot?.documents {
+                if let userDocument = documents.first {
+                    
+                    let defaultAddressData = [
+                        "defaultAddressID": defaultAddressID
+                    ] as [String : Any]
+                    
+                    userDocument.reference.setData(defaultAddressData, merge: true) { error in
+                        if error != nil {
+                            AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+                        } else {
+                            print("Default Address updated successfully")
+                            completion()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getDefaultAddress(viewController: UIViewController, completion: @escaping (Address?) -> Void) {
+        
+        let account = firestoreDatabase.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
+        
+        account.getDocuments { snapshot, error in
+            if error != nil {
+                AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+            } else if let documents = snapshot?.documents {
+                if let userDocument = documents.first {
+                    
+                    let addressCollection = userDocument.reference.collection("Address").whereField("id", isEqualTo: userDocument["defaultAddressID"] ?? "")
+                    
+                    addressCollection.getDocuments { (snapshot, error) in
+                        if error != nil {
+                            AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+                        } else if let addressDocument = snapshot?.documents {
+                            var defaultAddress: Address? = nil
+                            
+                            do {
+                                if let address = try addressDocument.first?.data(as: Address?.self) {
+                                    defaultAddress = address
+                                }
+                            } catch {
+                                AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: viewController)
+                            }
+                            completion(defaultAddress)
+                        }
+                    }
+                } else {
+                    completion(nil)
                 }
             }
         }

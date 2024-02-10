@@ -13,6 +13,7 @@ class AddressesTableViewCell: UITableViewCell {
     @IBOutlet weak var labelAddressText: UILabel!
     @IBOutlet weak var buttonDelete: UIButton!
     @IBOutlet weak var buttonEdit: UIButton!
+    @IBOutlet weak var checkmarkImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
