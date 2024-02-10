@@ -14,6 +14,7 @@ class PaymentMethodsViewController: UIViewController {
     
     let paymentViewModel = PaymentViewModel()
     var cardList = [Cards]()
+    var defaultCard: Cards?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class PaymentMethodsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         paymentViewModel.getCards(viewController: self)
+        paymentViewModel.getDefaultCard(viewController: self) { card in
+            self.defaultCard = card
+            self.paymentTableView.reloadData()
+        }
     }
     
     func checkCards() {
@@ -46,6 +51,7 @@ class PaymentMethodsViewController: UIViewController {
 
 }
 
+//MARK: - TableView
 extension PaymentMethodsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cardList.count
@@ -67,7 +73,35 @@ extension PaymentMethodsViewController: UITableViewDelegate, UITableViewDataSour
         let formattedCardNumber = formatCreditCardNumber(card.cardNumber!)
         cell.labelCardNumber.text = formattedCardNumber
         
+        if defaultCard?.id == card.id {
+            cell.checkmarkImageView.isHidden = false
+        } else {
+            cell.checkmarkImageView.isHidden = true
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard cardList[indexPath.row].id! != defaultCard?.id else {
+            return
+        }
+        
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overFullScreen
+        loadingVC.modalTransitionStyle = .crossDissolve
+        present(loadingVC, animated: true, completion: nil)
+        
+        paymentViewModel.setDefaultCardID(viewController: self, defaultCardID: cardList[indexPath.row].id!) {
+            self.paymentViewModel.getDefaultCard(viewController: self) { card in
+                self.defaultCard = card
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.dismiss(animated: true, completion: nil)
+                    self.paymentTableView.reloadData()
+                }
+            }
+        }
     }
     
     func formatCreditCardNumber(_ cardNumber: String) -> String {
