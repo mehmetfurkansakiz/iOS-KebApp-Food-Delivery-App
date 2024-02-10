@@ -33,6 +33,7 @@
 		0F2AE6B22AD32760000E9C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B02AD32760000E9C77 /* Main.storyboard */; };
 		0F2AE6B42AD32766000E9C77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B32AD32766000E9C77 /* Assets.xcassets */; };
 		0F2AE6B72AD32766000E9C77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6B52AD32766000E9C77 /* LaunchScreen.storyboard */; };
+		0F34AECF2B756C7E008AFD5A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34AECE2B756C7E008AFD5A /* LoadingViewController.swift */; };
 		0F34B9E22B5C2B1100F9818E /* PaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */; };
 		0F3F311A2B09483D00FCF112 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */; };
 		0F3F311C2B0BD4E900FCF112 /* RegisterCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */; };
@@ -94,6 +95,7 @@
 		0F2AE6B32AD32766000E9C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2AE6B62AD32766000E9C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2AE6B82AD32766000E9C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F34AECE2B756C7E008AFD5A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsViewController.swift; sourceTree = "<group>"; };
 		0F3F31192B09483D00FCF112 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		0F3F311B2B0BD4E800FCF112 /* RegisterCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompleteViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				0F08A8482B51A71400A0041D /* AddressesViewController.swift */,
 				0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */,
 				0F470E1E2B5FE603000AB3BB /* CardViewController.swift */,
+				0F34AECE2B756C7E008AFD5A /* LoadingViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				0F7106B32AD35E9000E21FF5 /* Foods.swift in Sources */,
 				0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */,
 				0F9919782B4DFC5100C81F09 /* AddressViewController.swift in Sources */,
+				0F34AECF2B756C7E008AFD5A /* LoadingViewController.swift in Sources */,
 				0FF29CF92B5D994900B2D7C4 /* PaymentDaoRepository.swift in Sources */,
 				0FA064262B5C82D0007710B7 /* Cards.swift in Sources */,
 				0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */,
