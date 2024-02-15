@@ -42,7 +42,7 @@ class AddressesViewController: UIViewController {
     
     func checkAddress() {
         if addressList.isEmpty == true {
-            
+            defaultAddress = nil
             labelNoSaved.isHidden = false
             addressesTableView.isHidden = true
         } else {
@@ -110,7 +110,19 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func deleteButtonTapped(_ sender: UIButton) {
-        addressViewModel.deleteAddress(viewController: self, addressID: addressList[sender.tag].id!)
+        let deletedAddress = addressList[sender.tag]
+        
+        addressViewModel.deleteAddress(viewController: self, addressID: deletedAddress.id!)
+        
+        if deletedAddress.id == defaultAddress?.id {
+            if let randomAddress = addressList.filter({ $0.id != deletedAddress.id }).randomElement() {
+                addressViewModel.setDefaultAddress(viewController: self, defaultAddressID: randomAddress.id!) {
+                    self.addressViewModel.getDefaultAddress(viewController: self) { address in
+                        self.defaultAddress = address
+                    }
+                }
+            }
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.addressViewModel.getAddress(viewController: self)
         }
