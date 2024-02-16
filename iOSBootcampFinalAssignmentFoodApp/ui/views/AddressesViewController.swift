@@ -123,9 +123,6 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.addressViewModel.getAddress(viewController: self)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
