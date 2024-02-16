@@ -41,6 +41,7 @@ class PaymentMethodsViewController: UIViewController {
     
     func checkCards() {
         if cardList.isEmpty == true {
+            defaultCard = nil
             labelNoSaved.isHidden = false
             paymentTableView.isHidden = true
         } else {
@@ -120,7 +121,19 @@ extension PaymentMethodsViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func deleteButtonTapped(_ sender: UIButton) {
+        let deletedCard = cardList[sender.tag]
+        
         paymentViewModel.deleteCard(viewController: self, cardID: cardList[sender.tag].id!)
+        
+        if deletedCard.id == defaultCard?.id {
+            if let randomCard = cardList.filter({ $0.id != deletedCard.id }).randomElement() {
+                paymentViewModel.setDefaultCardID(viewController: self, defaultCardID: randomCard.id!) {
+                    self.paymentViewModel.getDefaultCard(viewController: self) { card in
+                        self.defaultCard = card
+                    }
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
