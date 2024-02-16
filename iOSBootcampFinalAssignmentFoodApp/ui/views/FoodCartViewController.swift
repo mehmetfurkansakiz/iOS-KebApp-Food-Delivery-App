@@ -100,6 +100,18 @@ class FoodCartViewController: UIViewController {
         self.foodViewModel.getCart(nickname: self.nickname!)
         self.cartCollectionView.reloadData()
     }
+    
+    @IBAction func buttonCheckOut(_ sender: Any) {
+        performSegue(withIdentifier: "toCheckout", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCheckout" {
+            if let checkoutVC = segue.destination as? CheckoutViewController {
+                checkoutVC.cartFoodList = cartFoodsList
+            }
+        }
+    }
 }
 
 extension FoodCartViewController: UICollectionViewDelegate, SkeletonCollectionViewDataSource {
