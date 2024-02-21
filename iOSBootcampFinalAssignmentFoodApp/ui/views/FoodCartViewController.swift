@@ -102,13 +102,14 @@ class FoodCartViewController: UIViewController {
     }
     
     @IBAction func buttonCheckOut(_ sender: Any) {
-        performSegue(withIdentifier: "toCheckout", sender: nil)
+        performSegue(withIdentifier: "toCheckout", sender: cartFoodsList)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCheckout" {
-            if let checkoutVC = segue.destination as? CheckoutViewController {
-                checkoutVC.cartFoodList = cartFoodsList
+            if let cartFoods = sender as? [CartFoods] {
+                let destinationVC = segue.destination as! CheckoutViewController
+                    destinationVC.cartFoods = cartFoods
             }
         }
     }
