@@ -51,6 +51,21 @@ class CardViewController: UIViewController {
             return
         }
         
+        if cardNumber.count != 19 {
+            AlertHelper.createAlert(title: "Error", message: "Please enter a valid 16-digit card number.", in: self)
+            return
+        }
+
+        if cardExpiry.count != 5 {
+            AlertHelper.createAlert(title: "Error", message: "Please enter a valid expiration date (MM/YY).", in: self)
+            return
+        }
+
+        if cardCCV.count != 3 {
+            AlertHelper.createAlert(title: "Error", message: "Please enter a valid 3-digit CCV.", in: self)
+            return
+        }
+        
         card.title = cardTitle
         card.cardNumber = cardNumber
         card.expirationDate = cardExpiry
