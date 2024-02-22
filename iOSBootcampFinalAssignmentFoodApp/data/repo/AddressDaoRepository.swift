@@ -47,6 +47,8 @@ class AddressDaoRepository {
                         } else {
                             print("Address added successfully")
                             self.getAddress(viewController: viewController)
+                            self.setDefaultAddressID(viewController: viewController, defaultAddressID: address.id!) {
+                            }
                         }
                     }
                 }
@@ -156,6 +158,8 @@ class AddressDaoRepository {
                                     } else {
                                         print("Address updated successfully")
                                         self.getAddress(viewController: viewController)
+                                        self.setDefaultAddressID(viewController: viewController, defaultAddressID: addressID) {
+                                        }
                                     }
                                 }
                             }
