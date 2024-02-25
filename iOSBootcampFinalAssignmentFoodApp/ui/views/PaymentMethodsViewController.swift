@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class PaymentMethodsViewController: UIViewController {
 

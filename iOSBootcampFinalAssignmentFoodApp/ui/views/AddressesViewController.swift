@@ -23,7 +23,7 @@ class AddressesViewController: UIViewController {
         addressesTableView.delegate = self
         addressesTableView.dataSource = self
         
-        _ = addressViewModel.addressRepo.addressList.subscribe(onNext: { list in
+        _ = addressViewModel.addressList.subscribe(onNext: { list in
             self.addressList = list
             DispatchQueue.main.async {
                 self.addressesTableView.reloadData()
