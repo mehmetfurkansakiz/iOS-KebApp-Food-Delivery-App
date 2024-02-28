@@ -42,6 +42,8 @@ class PaymentDaoRepository {
                         } else {
                             print("Card added successfully")
                             self.getCards(viewController: viewController)
+                            self.setDefaultCardID(viewController: viewController, defaultCardID: card.id!) {
+                            }
                         }
                     }
                 }

@@ -106,6 +106,13 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func editButtonTapped(_ sender: UIButton) {
         let selectedAddress = addressList[sender.tag]
+        
+        addressViewModel.setDefaultAddress(viewController: self, defaultAddressID: selectedAddress.id!) {
+            self.addressViewModel.getDefaultAddress(viewController: self) { address in
+                self.defaultAddress = address
+            }
+        }
+        
         performSegue(withIdentifier: "toAddressEdit", sender: selectedAddress)
     }
     

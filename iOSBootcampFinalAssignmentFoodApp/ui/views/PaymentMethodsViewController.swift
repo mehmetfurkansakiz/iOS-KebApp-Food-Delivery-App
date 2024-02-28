@@ -118,6 +118,13 @@ extension PaymentMethodsViewController: UITableViewDelegate, UITableViewDataSour
     
     @objc func editButtonTapped(_ sender: UIButton) {
         let selectedCard = cardList[sender.tag]
+        
+        paymentViewModel.setDefaultCardID(viewController: self, defaultCardID: selectedCard.id!) {
+            self.paymentViewModel.getDefaultCard(viewController: self) { card in
+                self.defaultCard = card
+            }
+        }
+        
         performSegue(withIdentifier: "toCardEdit", sender: selectedCard)
     }
     

@@ -158,8 +158,6 @@ class AddressDaoRepository {
                                     } else {
                                         print("Address updated successfully")
                                         self.getAddress(viewController: viewController)
-                                        self.setDefaultAddressID(viewController: viewController, defaultAddressID: addressID) {
-                                        }
                                     }
                                 }
                             }
