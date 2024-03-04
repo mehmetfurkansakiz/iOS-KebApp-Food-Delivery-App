@@ -61,6 +61,7 @@
 		0F9DAC3D2AD3559600361AF0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */; };
 		0F9DAC3F2AD35B1500361AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */; };
 		0FA064262B5C82D0007710B7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA064252B5C82D0007710B7 /* Cards.swift */; };
+		0FC25C722B92A9BD00E12B9B /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC25C712B92A9BD00E12B9B /* OrderConfirmationViewController.swift */; };
 		0FCFC3482B2137310056A711 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC3472B2137310056A711 /* LikesViewModel.swift */; };
 		0FCFC34A2B213D210056A711 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC3492B213D210056A711 /* LikesViewController.swift */; };
 		0FCFC34C2B239CE60056A711 /* LikesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFC34B2B239CE60056A711 /* LikesTableViewCell.swift */; };
@@ -118,6 +119,7 @@
 		0F9DAC3C2AD3559600361AF0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F9DAC3E2AD35B1400361AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0FA064252B5C82D0007710B7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		0FC25C712B92A9BD00E12B9B /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		0FCFC3472B2137310056A711 /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
 		0FCFC3492B213D210056A711 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
 		0FCFC34B2B239CE60056A711 /* LikesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				0F34B9E12B5C2B1000F9818E /* PaymentMethodsViewController.swift */,
 				0F470E1E2B5FE603000AB3BB /* CardViewController.swift */,
 				0F34AECE2B756C7E008AFD5A /* LoadingViewController.swift */,
+				0FC25C712B92A9BD00E12B9B /* OrderConfirmationViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				0F0BD1A32ADAE50600FC2697 /* FoodCartCollectionViewCell.swift in Sources */,
 				0F0BD1A12ADAE4E400FC2697 /* FoodCartViewModel.swift in Sources */,
 				0F6400D12B3F78DF00D6CCE9 /* LaunchScreenViewController.swift in Sources */,
+				0FC25C722B92A9BD00E12B9B /* OrderConfirmationViewController.swift in Sources */,
 				0F161B1D2B13D9FF00EC7807 /* UserViewModel.swift in Sources */,
 				0F2AE6AF2AD32760000E9C77 /* HomeViewController.swift in Sources */,
 				0F2AE6AB2AD32760000E9C77 /* AppDelegate.swift in Sources */,

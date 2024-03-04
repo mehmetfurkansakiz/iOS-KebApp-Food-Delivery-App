@@ -906,11 +906,66 @@
                         <outlet property="scrollViewHeightConstraint" destination="c8g-T7-r5r" id="d47-CF-jtH"/>
                         <outlet property="summaryTableView" destination="Zbl-j8-eTK" id="Fst-gV-pqa"/>
                         <segue destination="9yP-e9-Ejy" kind="show" identifier="toPayment" id="X4X-EN-nJv"/>
+                        <segue destination="2F8-9D-hV4" kind="presentation" identifier="toConfirm" modalPresentationStyle="overFullScreen" id="gam-VT-oWX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujp-tC-lUM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2748" y="-757"/>
+        </scene>
+        <!--Order Confirmation View Controller-->
+        <scene sceneID="YV9-qv-W7s">
+            <objects>
+                <viewController id="2F8-9D-hV4" customClass="OrderConfirmationViewController" customModule="iOSBootcampFinalAssignmentFoodApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sMC-Zm-Urt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="USO-uh-Qx2">
+                                <rect key="frame" x="95" y="160.5" width="224" height="223"/>
+                                <color key="tintColor" name="mainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="Rog-84-4Ng"/>
+                                    <constraint firstAttribute="height" constant="224" id="pcm-QP-LBS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order is confirmed!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cst-we-f40">
+                                <rect key="frame" x="66" y="432" width="282" height="28"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <color key="textColor" name="textColor3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g94-na-97M">
+                                <rect key="frame" x="147.5" y="468" width="119.5" height="28"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <color key="textColor" name="textColor2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQg-JQ-Tsz">
+                                <rect key="frame" x="175" y="813" width="64.5" height="35"/>
+                                <color key="tintColor" name="mainColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1PC-Vc-9Be"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="USO-uh-Qx2" firstAttribute="top" secondItem="1PC-Vc-9Be" secondAttribute="top" constant="160" id="Gnn-ou-Qns"/>
+                            <constraint firstItem="cst-we-f40" firstAttribute="top" secondItem="USO-uh-Qx2" secondAttribute="bottom" constant="48" id="Nml-kX-Iyp"/>
+                            <constraint firstItem="g94-na-97M" firstAttribute="centerX" secondItem="sMC-Zm-Urt" secondAttribute="centerX" id="cdy-Wm-pwB"/>
+                            <constraint firstItem="1PC-Vc-9Be" firstAttribute="bottom" secondItem="jQg-JQ-Tsz" secondAttribute="bottom" constant="48" id="clM-Nv-UJ5"/>
+                            <constraint firstItem="jQg-JQ-Tsz" firstAttribute="centerX" secondItem="sMC-Zm-Urt" secondAttribute="centerX" id="fa0-x8-y98"/>
+                            <constraint firstItem="g94-na-97M" firstAttribute="top" secondItem="cst-we-f40" secondAttribute="bottom" constant="8" id="hZb-e2-E32"/>
+                            <constraint firstItem="USO-uh-Qx2" firstAttribute="centerX" secondItem="sMC-Zm-Urt" secondAttribute="centerX" id="jgN-C9-Kwr"/>
+                            <constraint firstItem="cst-we-f40" firstAttribute="centerX" secondItem="sMC-Zm-Urt" secondAttribute="centerX" id="yHs-xO-Dmr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EVQ-b7-TSF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bEH-4V-80c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3792.753623188406" y="-757.36607142857144"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="CWE-t3-KyO">
@@ -2638,6 +2693,7 @@
         <image name="arrow.upright.circle" catalog="system" width="128" height="123"/>
         <image name="card" width="3000" height="2000"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="foodBackground" width="1200" height="1200"/>

@@ -33,15 +33,17 @@ class CheckoutViewController: UIViewController {
     let paymentViewModel = PaymentViewModel()
     var defaultCard: Cards?
     var cartFoods = [CartFoods]()
+    let foodCartViewModel = FoodCartViewModel()
+    let userViewModel = UserViewModel()
+    var nickname: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeAppearance()
         
-        summaryTableView.delegate = self
-        summaryTableView.dataSource = self
-        summaryTableView.rowHeight = UITableView.automaticDimension
-        summaryTableView.estimatedRowHeight = 48.0
+        userViewModel.getNickname { nickname in
+            self.nickname = nickname
+        }
         
     }
     
@@ -56,6 +58,14 @@ class CheckoutViewController: UIViewController {
         }
         calculateDiscountedTotalPrice()
         configureScrollViewHeight()
+    }
+    
+    func deleteAllCart(){
+        for food in cartFoods {
+            if let foodID = food.sepet_yemek_id {
+                foodCartViewModel.deleteCart(cart_food_id: Int(foodID)!, nickname: nickname!)
+            }
+        }
     }
     
     func configureScrollViewHeight() {
@@ -108,6 +118,11 @@ class CheckoutViewController: UIViewController {
         customizeStackView(addressStackView)
         customizeStackView(paymentStackView)
         
+        summaryTableView.delegate = self
+        summaryTableView.dataSource = self
+        summaryTableView.rowHeight = UITableView.automaticDimension
+        summaryTableView.estimatedRowHeight = 48.0
+        
         let addPaymentGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(paymentStackViewTapped))
         addPaymentStackView.addGestureRecognizer(addPaymentGestureRecognizer)
     }
@@ -141,6 +156,17 @@ class CheckoutViewController: UIViewController {
     }
 
     @IBAction func buttonPlaceOrder(_ sender: Any) {
+        guard defaultAddress != nil else {
+            AlertHelper.createAlert(title: "Error", message: "Please set a address.", in: self)
+            return
+        }
+        
+        guard defaultCard != nil else {
+            AlertHelper.createAlert(title: "Error", message: "Please set a payment method.", in: self)
+            return
+        }
+        deleteAllCart()
+        performSegue(withIdentifier: "toConfirm", sender: nil)
     }
 }
 
