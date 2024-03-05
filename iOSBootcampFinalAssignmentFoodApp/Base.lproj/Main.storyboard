@@ -946,6 +946,9 @@
                                 <color key="tintColor" name="mainColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="2F8-9D-hV4" eventType="touchUpInside" id="F8r-oT-pYo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1PC-Vc-9Be"/>
@@ -962,6 +965,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EVQ-b7-TSF"/>
+                    <connections>
+                        <segue destination="F07-zV-xOC" kind="presentation" identifier="toHomeVC" modalPresentationStyle="overFullScreen" id="A1k-oZ-JMn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEH-4V-80c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1582,9 +1588,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="dqE-IL-yEt" kind="presentation" id="J3w-Lr-MQJ"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Z0h-Kc-9JK">
                                 <rect key="frame" x="20" y="378" width="374" height="437"/>
@@ -2381,97 +2384,6 @@
             </objects>
             <point key="canvasLocation" x="3600" y="2313"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="u1V-L8-orc">
-            <objects>
-                <viewController id="dqE-IL-yEt" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OVI-pn-tkb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit your account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-XE-pEi">
-                                <rect key="frame" x="24" y="64" width="256.5" height="35"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
-                                <color key="textColor" name="mainColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKo-tb-zkK">
-                                <rect key="frame" x="24" y="147" width="60.5" height="24"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                <color key="textColor" name="textColor3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q73-he-vma">
-                                <rect key="frame" x="24" y="179" width="366" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0l-bB-vMe">
-                                <rect key="frame" x="24" y="245" width="57" height="24"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                <color key="textColor" name="textColor3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jK-xE-ptJ">
-                                <rect key="frame" x="24" y="277" width="366" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-ox-sMV">
-                                <rect key="frame" x="24" y="343" width="88" height="24"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                <color key="textColor" name="textColor3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="neS-CW-tRU">
-                                <rect key="frame" x="24" y="375" width="366" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7o-yx-mp7">
-                                <rect key="frame" x="24" y="441" width="38.5" height="24"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                <color key="textColor" name="textColor3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uiv-Ff-zXf">
-                                <rect key="frame" x="24" y="473" width="366" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="qSX-dT-Trj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="0ON-XE-pEi" firstAttribute="top" secondItem="qSX-dT-Trj" secondAttribute="top" constant="64" id="1gh-7h-bu2"/>
-                            <constraint firstItem="qSX-dT-Trj" firstAttribute="trailing" secondItem="neS-CW-tRU" secondAttribute="trailing" constant="24" id="4Gv-PE-FBG"/>
-                            <constraint firstItem="neS-CW-tRU" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="5aZ-VQ-bka"/>
-                            <constraint firstItem="bKo-tb-zkK" firstAttribute="top" secondItem="0ON-XE-pEi" secondAttribute="bottom" constant="48" id="8Nu-fc-Fje"/>
-                            <constraint firstItem="q73-he-vma" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="9dC-uF-8Sh"/>
-                            <constraint firstItem="neS-CW-tRU" firstAttribute="top" secondItem="C8I-ox-sMV" secondAttribute="bottom" constant="8" id="Aew-wk-VAN"/>
-                            <constraint firstItem="qSX-dT-Trj" firstAttribute="trailing" secondItem="Uiv-Ff-zXf" secondAttribute="trailing" constant="24" id="AuT-5H-KK4"/>
-                            <constraint firstItem="q73-he-vma" firstAttribute="top" secondItem="bKo-tb-zkK" secondAttribute="bottom" constant="8" id="C13-ma-NjX"/>
-                            <constraint firstItem="0ON-XE-pEi" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="EEj-iT-98a"/>
-                            <constraint firstItem="B7o-yx-mp7" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="OUf-OB-4ck"/>
-                            <constraint firstItem="C8I-ox-sMV" firstAttribute="top" secondItem="7jK-xE-ptJ" secondAttribute="bottom" constant="32" id="OaT-vz-DTd"/>
-                            <constraint firstItem="bKo-tb-zkK" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="P2Z-Pr-4pp"/>
-                            <constraint firstItem="e0l-bB-vMe" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="PTF-Ze-LW4"/>
-                            <constraint firstItem="Uiv-Ff-zXf" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="RR4-q6-L1R"/>
-                            <constraint firstItem="qSX-dT-Trj" firstAttribute="trailing" secondItem="q73-he-vma" secondAttribute="trailing" constant="24" id="Uv7-fg-3gh"/>
-                            <constraint firstItem="qSX-dT-Trj" firstAttribute="trailing" secondItem="7jK-xE-ptJ" secondAttribute="trailing" constant="24" id="Zn4-fU-q4p"/>
-                            <constraint firstItem="e0l-bB-vMe" firstAttribute="top" secondItem="q73-he-vma" secondAttribute="bottom" constant="32" id="eYJ-Is-IoE"/>
-                            <constraint firstItem="7jK-xE-ptJ" firstAttribute="top" secondItem="e0l-bB-vMe" secondAttribute="bottom" constant="8" id="eta-ln-Rv0"/>
-                            <constraint firstItem="C8I-ox-sMV" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="hHl-XG-gjl"/>
-                            <constraint firstItem="B7o-yx-mp7" firstAttribute="top" secondItem="neS-CW-tRU" secondAttribute="bottom" constant="32" id="kIB-y3-ke5"/>
-                            <constraint firstItem="7jK-xE-ptJ" firstAttribute="leading" secondItem="qSX-dT-Trj" secondAttribute="leading" constant="24" id="rbi-eG-Thw"/>
-                            <constraint firstItem="Uiv-Ff-zXf" firstAttribute="top" secondItem="B7o-yx-mp7" secondAttribute="bottom" constant="8" id="yc5-oQ-Ilg"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J9r-7R-Swm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="919" y="2313"/>
-        </scene>
         <!--Cart-->
         <scene sceneID="wVJ-9z-JD9">
             <objects>
@@ -2683,10 +2595,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QAZ-3r-9J7"/>
-        <segue reference="Vq4-j2-a2h"/>
+        <segue reference="I4K-AW-8be"/>
         <segue reference="ldS-t2-Fsp"/>
-        <segue reference="X4X-EN-nJv"/>
-        <segue reference="ChQ-iR-HEL"/>
+        <segue reference="nSR-Yf-XA9"/>
+        <segue reference="A1k-oZ-JMn"/>
         <segue reference="CU5-kQ-r0B"/>
     </inferredMetricsTieBreakers>
     <resources>

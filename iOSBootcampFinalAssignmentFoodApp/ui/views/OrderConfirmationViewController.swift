@@ -15,4 +15,7 @@ class OrderConfirmationViewController: UIViewController {
         
     }
     
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toHomeVC", sender: nil)
+    }
 }
