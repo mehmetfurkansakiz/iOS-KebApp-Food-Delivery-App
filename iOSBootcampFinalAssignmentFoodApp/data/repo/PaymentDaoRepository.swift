@@ -42,6 +42,8 @@ class PaymentDaoRepository {
                         } else {
                             print("Card added successfully")
                             self.getCards(viewController: viewController)
+                            self.setDefaultCardID(viewController: viewController, defaultCardID: card.id!) {
+                            }
                         }
                     }
                 }
@@ -153,6 +155,68 @@ class PaymentDaoRepository {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+    
+    func setDefaultCardID(viewController: UIViewController, defaultCardID: String, completion: @escaping () -> Void) {
+        
+        let account = firestoreDatabase.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
+        
+        account.getDocuments { snapshot, error in
+            if error != nil {
+                AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+            } else if let documents = snapshot?.documents {
+                if let userDocument = documents.first {
+                    
+                    let defaultCardData = [
+                        "defaultCardID": defaultCardID
+                    ] as [String : Any]
+                    
+                    userDocument.reference.setData(defaultCardData, merge: true) { error in
+                        if error != nil {
+                            AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+                        } else {
+                            print("Default Card Updated successfully")
+                            completion()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getDefaultCard(viewController: UIViewController, completion: @escaping (Cards?) -> Void) {
+        
+        let account = firestoreDatabase.collection("Accounts").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
+        
+        account.getDocuments { snapshot, error in
+            if error != nil {
+                AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+            } else if let documents = snapshot?.documents {
+                if let userDocument = documents.first {
+                    
+                    let cardCollection = userDocument.reference.collection("Cards").whereField("id", isEqualTo: userDocument["defaultCardID"] ?? "")
+                    
+                    cardCollection.getDocuments { snapshot, error in
+                        if error != nil {
+                            AlertHelper.createAlert(title: "Error", message: error!.localizedDescription, in: viewController)
+                        } else if let cardDocument = snapshot?.documents {
+                            var defaultCard: Cards? = nil
+                            
+                            do {
+                                if let card = try cardDocument.first?.data(as: Cards.self) {
+                                    defaultCard = card
+                                }
+                            } catch {
+                                AlertHelper.createAlert(title: "Error", message: error.localizedDescription, in: viewController)
+                            }
+                            completion(defaultCard)
+                        }
+                    }
+                } else {
+                    completion(nil)
                 }
             }
         }

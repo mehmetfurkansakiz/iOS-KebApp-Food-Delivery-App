@@ -32,4 +32,12 @@ class PaymentViewModel {
     func deleteCard(viewController: UIViewController, cardID: String) {
         paymentRepo.deleteCard(viewController: viewController, cardID: cardID)
     }
+    
+    func setDefaultCardID(viewController: UIViewController, defaultCardID: String, completion: @escaping () -> Void) {
+        paymentRepo.setDefaultCardID(viewController: viewController, defaultCardID: defaultCardID, completion: completion)
+    }
+    
+    func getDefaultCard(viewController: UIViewController, completion: @escaping(Cards?) -> Void) {
+        paymentRepo.getDefaultCard(viewController: viewController, completion: completion)
+    }
 }

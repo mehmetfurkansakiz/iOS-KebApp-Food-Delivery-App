@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     let userViewModel = UserViewModel()
     var cartFoodsList = [CartFoods]()
     let foodCartViewModel = FoodCartViewModel()
+    let addressViewModel = AddressViewModel()
+    var defaultAddress: Address?
     var nickname: String?
 
     override func viewDidLoad() {
@@ -32,9 +34,7 @@ class HomeViewController: UIViewController {
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
         
-        // Custom Navigation
-        let navigationLocationView = foodViewModel.configureNavLocation(title: "Erenler, Sakarya", imageName: "location")
-        homeNavigationBar.leftBarButtonItem = UIBarButtonItem(customView: navigationLocationView)
+        // Custom Navigation Bar Title Logo
         
         let navigationTitleView = foodViewModel.configureNavTitle(title: "KebApp")
         homeNavigationBar.rightBarButtonItem = UIBarButtonItem(customView: navigationTitleView)
@@ -87,17 +87,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailVC" {
-            if let food = sender as? Foods {
-                let destinationVC = segue.destination as! FoodDetailViewController
-                destinationVC.food = food
-                destinationVC.imageUrl = foodViewModel.getFoodImageUrl(imageName: food.yemek_resim_adi!)
-            }
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         homeCollectionView.isSkeletonable = true
         homeCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver),
@@ -110,6 +99,27 @@ class HomeViewController: UIViewController {
         likesViewModel.getLikes(viewController: self)
         if let nickname = self.nickname {
             self.foodCartViewModel.getCart(nickname: nickname)
+        }
+        addressViewModel.getDefaultAddress(viewController: self) { address in
+            self.defaultAddress = address
+            if self.defaultAddress != nil {
+                let navigationLocationView = self.foodViewModel.configureNavLocation(title: "\(self.defaultAddress?.state! ?? "") / \(self.defaultAddress?.city! ?? "")", imageName: "location")
+                self.homeNavigationBar.leftBarButtonItem = UIBarButtonItem(customView: navigationLocationView)
+            } else {
+                let navigationLocationView = self.foodViewModel.configureNavLocation(title: "Add an address!", imageName: "location")
+                self.homeNavigationBar.leftBarButtonItem = UIBarButtonItem(customView: navigationLocationView)
+            }
+        }
+    }
+    
+    // Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            if let food = sender as? Foods {
+                let destinationVC = segue.destination as! FoodDetailViewController
+                destinationVC.food = food
+                destinationVC.imageUrl = foodViewModel.getFoodImageUrl(imageName: food.yemek_resim_adi!)
+            }
         }
     }
 }

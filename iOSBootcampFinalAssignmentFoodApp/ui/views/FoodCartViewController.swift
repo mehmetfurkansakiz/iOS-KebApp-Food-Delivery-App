@@ -100,6 +100,23 @@ class FoodCartViewController: UIViewController {
         self.foodViewModel.getCart(nickname: self.nickname!)
         self.cartCollectionView.reloadData()
     }
+    
+    @IBAction func buttonCheckOut(_ sender: Any) {
+        if cartFoodsList.isEmpty != true {
+            performSegue(withIdentifier: "toCheckout", sender: cartFoodsList)
+        } else {
+            AlertHelper.createAlert(title: "Error", message: "Your cart cannot be empty.", in: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCheckout" {
+            if let cartFoods = sender as? [CartFoods] {
+                let destinationVC = segue.destination as! CheckoutViewController
+                    destinationVC.cartFoods = cartFoods
+            }
+        }
+    }
 }
 
 extension FoodCartViewController: UICollectionViewDelegate, SkeletonCollectionViewDataSource {

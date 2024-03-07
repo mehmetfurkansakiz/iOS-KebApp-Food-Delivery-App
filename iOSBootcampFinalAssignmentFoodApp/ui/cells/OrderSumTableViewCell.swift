@@ -1,5 +1,5 @@
 //
-//  PaymentMethodsTableViewCell.swift
+//  OrderSumTableViewCell.swift
 //  iOSBootcampFinalAssignmentFoodApp
 //
 //  Created by furkan sakız on 6.01.2024.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class PaymentMethodsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var labelCardName: UILabel!
-    @IBOutlet weak var labelCardNumber: UILabel!
-    @IBOutlet weak var buttonDelete: UIButton!
-    @IBOutlet weak var buttonEdit: UIButton!
-    @IBOutlet weak var checkmarkImageView: UIImageView!
+class OrderSumTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var labelItemName: UILabel!
+    @IBOutlet weak var labelItemPrice: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
