@@ -102,7 +102,11 @@ class FoodCartViewController: UIViewController {
     }
     
     @IBAction func buttonCheckOut(_ sender: Any) {
-        performSegue(withIdentifier: "toCheckout", sender: cartFoodsList)
+        if cartFoodsList.isEmpty != true {
+            performSegue(withIdentifier: "toCheckout", sender: cartFoodsList)
+        } else {
+            AlertHelper.createAlert(title: "Error", message: "Your cart cannot be empty.", in: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
