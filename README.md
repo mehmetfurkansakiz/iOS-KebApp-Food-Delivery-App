@@ -30,11 +30,11 @@ KebApp is a simple food ordering application developed for educational purposes.
 |:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
 | <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/a9dfb487-fd94-46e9-a9ba-4131f8bc5080" width="480" /> | <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/72e91c91-264e-4292-8cd1-1507707bf046" width="480" /> | <img src="https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/ae1763a4-410c-46b7-91ae-1cf0ff3680eb" width="480" /> |
 
-## Video from the app (OLD)📱
-<div> 
-  <video src='https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/c28f7b85-2cb3-4894-94a2-958a893a56d1'/>
-</div>
-
+## Video from the app📱
+| Video 1 (old)                                      | Video 2 (new features)                                     |
+| -------------------------------------------- | -------------------------------------------- |
+| <video src='https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/c28f7b85-2cb3-4894-94a2-958a893a56d1'/> | <video src='https://github.com/mehmetfurkansakiz/iOS-KebApp-Food-Delivery-App/assets/62005335/287cb188-b442-449f-8b00-8302b4dd4422'/> |
+      
 ## Tech Stack 📚
 
 * [Firebase Authentication](https://firebase.google.com/docs/auth)
